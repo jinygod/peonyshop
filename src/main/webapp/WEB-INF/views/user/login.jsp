@@ -12,8 +12,13 @@
 <body>
 	<form:form action="${root }user/login_pro" method='post' modelAttribute="tempLoginUserBean">
 			<form:label path="user_id">아이디</form:label>
-			<form:input path="user_id" class='form-control' />
+			<form:input path="user_id" /><br/>
 			<form:errors path='user_id' style='color:red' />
+			
+			<form:label path="user_pw">비밀번호</form:label>
+			<form:password path="user_pw" /><br/>
+			<form:errors path='user_pw' style='color:red' />
+			
 			<form:button>확인</form:button>
 	</form:form>
 </body>
