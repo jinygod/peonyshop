@@ -1,10 +1,10 @@
-package kr.co.softcampus.dao;
+package dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.softcampus.beans.UserBean;
-import kr.co.softcampus.mapper.UserMapper;
+import beans.UserBean;
+import mapper.UserMapper;
 
 @Repository
 public class UserDao {

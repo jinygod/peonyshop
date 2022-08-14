@@ -1,4 +1,4 @@
-package kr.co.softcampus.controller;
+package controller;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.softcampus.beans.UserBean;
-import kr.co.softcampus.service.UserService;
+import beans.UserBean;
+import service.UserService;
 
 @Controller
 @RequestMapping("/user")

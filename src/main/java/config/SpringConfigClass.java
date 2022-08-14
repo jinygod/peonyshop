@@ -1,4 +1,4 @@
-package kr.co.softcampus.config;
+package config;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterRegistration;

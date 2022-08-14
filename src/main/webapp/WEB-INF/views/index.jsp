@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href='user/login'>로그인</a>
-	<a href='user/join'>회원가입</a>
+	<a href='${root }user/login'>로그인</a><br/>
+	<a href='${root }user/join'>회원가입</a><br/>
+	<a href='${root }admin/login'>관리자 로그인</a><br/>
+	<a href='${root }notice/main'>공지사항</a></br>
 </body>
 </html>

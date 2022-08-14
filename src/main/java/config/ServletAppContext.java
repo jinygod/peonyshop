@@ -1,4 +1,4 @@
-package kr.co.softcampus.config;
+package config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,16 +16,18 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import kr.co.softcampus.mapper.UserMapper;
+import mapper.AdminMapper;
+import mapper.NoticeMapper;
+import mapper.UserMapper;
 
 // Spring MVC 프로젝트에 관련된 설정을 하는 클래스
 @Configuration
 // Controller 어노테이션이 셋팅되어 있는 클래스를 Controller로 등록한다.
 @EnableWebMvc
 // 스캔할 패키지를 지정한다.
-@ComponentScan("kr.co.softcampus.controller")
-@ComponentScan("kr.co.softcampus.service")
-@ComponentScan("kr.co.softcampus.dao")
+@ComponentScan("controller")
+@ComponentScan("service")
+@ComponentScan("dao")
 
 
 
@@ -85,6 +87,20 @@ public class ServletAppContext implements WebMvcConfigurer{
 		@Bean
 		public MapperFactoryBean<UserMapper> getUserMapper(SqlSessionFactory factory) throws Exception{
 			MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
+			factoryBean.setSqlSessionFactory(factory);
+			return factoryBean;
+		}
+		
+		@Bean
+		public MapperFactoryBean<AdminMapper> getAdminMapper(SqlSessionFactory factory) throws Exception{
+			MapperFactoryBean<AdminMapper> factoryBean = new MapperFactoryBean<AdminMapper>(AdminMapper.class);
+			factoryBean.setSqlSessionFactory(factory);
+			return factoryBean;
+		}
+		
+		@Bean
+		public MapperFactoryBean<NoticeMapper> getNoticeMapper(SqlSessionFactory factory) throws Exception{
+			MapperFactoryBean<NoticeMapper> factoryBean = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
 			factoryBean.setSqlSessionFactory(factory);
 			return factoryBean;
 		}

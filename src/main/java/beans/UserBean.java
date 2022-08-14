@@ -1,4 +1,4 @@
-package kr.co.softcampus.beans;
+package beans;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
