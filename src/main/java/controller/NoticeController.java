@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.NoticeBean;
 import service.NoticeService;
@@ -21,12 +22,11 @@ public class NoticeController {
 
 	//오류 추정
 	@GetMapping("/main")
-	public String main(@RequestParam("notice_idx") int notice_idx, 
-						Model model){
+	public String main(NoticeBean noticeBean, Model model){
 		
-	//	List<NoticeBean> noticeList = noticeService.getNoticeList(notice_idx);
+		List<NoticeBean> noticeList = noticeService.getNoticeList(noticeBean);
 		
-	//	model.addAttribute("noticeList", noticeList);
+		model.addAttribute("noticeList", noticeList);
 		
 		return "notice/main";
 	}

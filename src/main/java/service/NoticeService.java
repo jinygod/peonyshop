@@ -20,7 +20,7 @@ public class NoticeService {
 	}
 	
 	//오류 추정
-	public List<NoticeBean> getNoticeList(int notice_idx, RowBounds rowBounds){
-		return noticeDao.getNoticeList(notice_idx, rowBounds);
+	public 	List<NoticeBean> getNoticeList(NoticeBean noticeBean){
+		return noticeDao.getNoticeList(noticeBean);
 	}
 }
