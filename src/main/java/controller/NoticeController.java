@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +24,9 @@ public class NoticeController {
 	public String main(@RequestParam("notice_idx") int notice_idx, 
 						Model model){
 		
-		List<NoticeBean> noticeList = noticeService.getNoticeList(notice_idx);
+	//	List<NoticeBean> noticeList = noticeService.getNoticeList(notice_idx);
 		
-		model.addAttribute("noticeList", noticeList);
+	//	model.addAttribute("noticeList", noticeList);
 		
 		return "notice/main";
 	}
