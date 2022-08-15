@@ -21,7 +21,6 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 
-	//오류 추정
 	@GetMapping("/main")
 	public String main(NoticeBean noticeBean, Model model){
 		
@@ -33,18 +32,17 @@ public class NoticeController {
 	}
 
 	@GetMapping("/read")
-	public String read(@RequestParam("notice_idx") int notice_idx, NoticeBean readNoticeBean,
+	public String read(@RequestParam("notice_idx") int notice_idx, 
 						Model model) {
 		
-		NoticeBean readNotice = noticeService.getReadNotice(readNoticeBean);
+		NoticeBean readNotice = noticeService.getReadNotice(notice_idx);
 		
-		 model.addAttribute("readNotice", readNotice);
-		 model.addAttribute("notice_idx", notice_idx);
+		model.addAttribute("readNotice", readNotice);
+		model.addAttribute("notice_idx", notice_idx);
 		
 		return "notice/read";
 	}
 	
-
 	@GetMapping("/write")
 	public String write(@ModelAttribute("writeNoticeBean") NoticeBean writeNoticeBean) {
 
@@ -71,6 +69,8 @@ public class NoticeController {
 	
 	@GetMapping("/modify")
 	public String modify() {
+		
 		return "notice/modify";
+		
 	}
 }

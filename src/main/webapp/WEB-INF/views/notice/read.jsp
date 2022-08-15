@@ -32,6 +32,5 @@
 		<a href= '${root }notice/modify'>수정</a>
 		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>	
 		
-
 </body>
 </html>

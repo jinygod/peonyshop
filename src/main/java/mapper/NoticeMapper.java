@@ -10,7 +10,6 @@ import beans.NoticeBean;
 
 public interface NoticeMapper {
 	
-	//오류 추정
 	// CHECKLIST 확인
 	//@SelectKey(statement = "select notice_seq.nextval from dual", keyProperty = "notice_idx", before = true, resultType = int.class)
 	
@@ -24,10 +23,10 @@ public interface NoticeMapper {
 			+ "order by notice_idx desc")
 	List<NoticeBean> getNoticeList(NoticeBean noticeBean);
 	
-	@Select("select  a1.notice_idx, a2.admin_name as notice_writer, to_char(a1.notice_date, 'YYYY-MM-DD') as notice_date, a1.notice_title, a1.notice_content "
+	@Select("select a1.notice_idx, a2.admin_name as notice_writer, to_char(a1.notice_date, 'YYYY-MM-DD') as notice_date, a1.notice_title, a1.notice_content "
 			+ "from notice_table a1, admin_table a2 "
 			+ "where a1.notice_idx = #{notice_idx}")
-	NoticeBean getReadNotice(NoticeBean readNoticeBean);
+	NoticeBean getReadNotice(int notice_idx);
 	
 	@Delete("delete from notice_table "
 			+ "where notice_idx=#{notice_idx} ")

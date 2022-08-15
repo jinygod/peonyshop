@@ -3,28 +3,7 @@
 
 @SelectKey(statement = "select notice_seq.nextval from dual", keyProperty = "notice_idx", before = true, resultType = int.class) 가 뭘까?
 NoticeMapper에 있음
+==> 
 
-Multiple Contexts have a path of "/peonyshop". ==> Servers 우클릭 modules 에서 path 다 삭제하기
 
-로그인 유효성검사
-로그아웃 기능
-정보수정 기능
-notice 수정
-Q&A 
-카테고리
-관리자 페이지
 
-로그인상태에 따른 화면 구성(로그인, 회원가입 / 마이페이지, 정보수정, 로그아웃)
-
-상품리스트
-상품 상세 페이지
-장바구니
-
-상품 구매 과정
-상품 등록 과정(관리자 페이지)
-정산
-상품수정, 삭제
-
-*회원관리
-*교환/반품
- 
