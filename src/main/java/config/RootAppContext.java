@@ -23,5 +23,5 @@ public class RootAppContext {
 		return new AdminBean();
 	}
 	
-
+	
 }

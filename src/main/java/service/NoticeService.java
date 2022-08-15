@@ -19,8 +19,15 @@ public class NoticeService {
 		noticeDao.addNoticeInfo(writeNoticeBean);
 	}
 	
-	//오류 추정
 	public 	List<NoticeBean> getNoticeList(NoticeBean noticeBean){
 		return noticeDao.getNoticeList(noticeBean);
+	}
+	
+	public NoticeBean getReadNotice(NoticeBean readNoticeBean) {
+		return noticeDao.getReadNotice(readNoticeBean);
+	}
+	
+	public void deleteNotice(NoticeBean deleteNoticeBean) {
+		noticeDao.deleteNotice(deleteNoticeBean);
 	}
 }

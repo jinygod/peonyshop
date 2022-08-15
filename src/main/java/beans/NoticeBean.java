@@ -6,6 +6,7 @@ public class NoticeBean {
 	private String notice_title;
 	private String notice_content;
 	private String notice_date;
+	private String notice_writer;
 	
 	public String getNotice_idx() {
 		return notice_idx;
@@ -30,6 +31,12 @@ public class NoticeBean {
 	}
 	public void setNotice_date(String notice_date) {
 		this.notice_date = notice_date;
+	}
+	public String getNotice_writer() {
+		return notice_writer;
+	}
+	public void setNotice_writer(String notice_writer) {
+		this.notice_writer = notice_writer;
 	}
 	
 	

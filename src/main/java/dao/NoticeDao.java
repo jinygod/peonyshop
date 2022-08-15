@@ -20,7 +20,15 @@ public class NoticeDao {
 	}
 	
 	//오류 추정
-	public 	List<NoticeBean> getNoticeList(NoticeBean noticeBean){
+	public 	List<NoticeBean> getNoticeList(NoticeBean noticeBean) {
 		return noticeMapper.getNoticeList(noticeBean);
+	}
+	
+	public NoticeBean getReadNotice(NoticeBean readNoticeBean) {
+		return noticeMapper.getReadNotice(readNoticeBean);
+	}
+	
+	public void deleteNotice(NoticeBean deleteNoticeBean) {
+		noticeMapper.deleteNotice(deleteNoticeBean);
 	}
 }

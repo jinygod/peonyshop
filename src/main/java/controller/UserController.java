@@ -56,4 +56,14 @@ public class UserController {
 		
 		return "user/join_success";
 	}
+	
+	@GetMapping("/modify")
+	public String modify() {
+		return "user/modify";
+	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "user/logout";
+	}
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.NoticeBean;
 import service.NoticeService;
@@ -25,16 +26,24 @@ public class NoticeController {
 	public String main(NoticeBean noticeBean, Model model){
 		
 		List<NoticeBean> noticeList = noticeService.getNoticeList(noticeBean);
-		
+
 		model.addAttribute("noticeList", noticeList);
 		
 		return "notice/main";
 	}
 
 	@GetMapping("/read")
-	public String read() {
+	public String read(@RequestParam("notice_idx") int notice_idx, NoticeBean readNoticeBean,
+						Model model) {
+		
+		NoticeBean readNotice = noticeService.getReadNotice(readNoticeBean);
+		
+		 model.addAttribute("readNotice", readNotice);
+		 model.addAttribute("notice_idx", notice_idx);
+		
 		return "notice/read";
 	}
+	
 
 	@GetMapping("/write")
 	public String write(@ModelAttribute("writeNoticeBean") NoticeBean writeNoticeBean) {
@@ -51,4 +60,17 @@ public class NoticeController {
 		return "notice/write_success";
 	}
 	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("notice_idx") int notice_idx, NoticeBean deleteNoticeBean,
+						Model model) {
+		
+		noticeService.deleteNotice(deleteNoticeBean);
+		
+		return "notice/delete";
+	}
+	
+	@GetMapping("/modify")
+	public String modify() {
+		return "notice/modify";
+	}
 }

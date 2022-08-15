@@ -1,10 +1,72 @@
 <게시판 종류>
-create table board_info_table(
-	board_info_idx number constraint BOARD_INFO_PK primary key,
-	board_info_name varchar2(50) not null
+create table user_table (create table user_table (
+user_idx number constraint USER_PK primary key,
+user_id varchar2(20) not null,
+user_pw varchar2(20) not null,
+user_name varchar2(20) not null,
+user_birth date not null,
+user_email varchar2(30) not null,
+user_phone varchar2(13) not null,
+user_zipcode varchar2(10) not null,
+user_addr1 varchar2(100) not null,
+user_addr2 varchar2(100) not null
 );
 
-insert into board_info_table(board_info_idx, board_info_name) values (1, '공지사항');
-insert into board_info_table(board_info_idx, board_info_name) values (2, '유머게시판');
-insert into board_info_table(board_info_idx, board_info_name) values (3, '정치게시판');
-insert into board_info_table(board_info_idx, board_info_name) values (4, '스포츠게시판');
+create sequence user_seq
+start with 1
+increment by 1
+minvalue 1;
+
+create table admin_table (
+admin_code varchar2(20),
+admin_name varchar2(20) not null
+);
+
+insert into admin_table values (12345, '피오니');
+
+create table notice_table (
+notice_idx number constraint NOTICE_PK primary key,
+notice_title varchar2(100),
+notice_content varchar2(4000),
+notice_date date
+);
+
+create sequence notice_seq
+start with 1
+increment by 1
+minvalue 1;
+user_idx number constraint USER_PK primary key,
+user_id varchar2(20) not null,
+user_pw varchar2(20) not null,
+user_name varchar2(20) not null,
+user_birth date not null,
+user_email varchar2(30) not null,
+user_phone varchar2(13) not null,
+user_zipcode varchar2(10) not null,
+user_addr1 varchar2(100) not null,
+user_addr2 varchar2(100) not null
+);
+
+create sequence user_seq
+start with 1
+increment by 1
+minvalue 1;
+
+create table admin_table (
+admin_code varchar2(20),
+admin_name varchar2(20) not null
+);
+
+insert into admin_table values (12345, '피오니');
+
+create table notice_table (
+notice_idx number constraint NOTICE_PK primary key,
+notice_title varchar2(100),
+notice_content varchar2(4000),
+notice_date date
+);
+
+create sequence notice_seq
+start with 1
+increment by 1
+minvalue 1;

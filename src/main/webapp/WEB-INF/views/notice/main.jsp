@@ -30,14 +30,12 @@
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
-			<th>내용</th>
 			<th>등록일자</th>
 		</tr>
 		<c:forEach var='obj' items="${noticeList }">
 		<tr>
 			<td>${obj.notice_idx }</td>
-			<td><a href = "${root }notice/read">${obj.notice_title }</a></td>
-			<td>${obj.notice_content }</td>
+			<td><a href = "${root }notice/read?notice_idx=${obj.notice_idx}">${obj.notice_title }</a></td>
 			<td>${obj.notice_date }</td>
 		</tr>
 		</c:forEach>
