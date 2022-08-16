@@ -5,15 +5,17 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import beans.UserBean;
 import service.UserService;
+import validator.UserValidator;
 
 @Controller
 @RequestMapping("/user")
@@ -31,23 +33,21 @@ public class UserController {
 	}
 
 	@PostMapping("/login_pro")
-	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
-							BindingResult result) {
+	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			return "user/login";
 		}
-			
+		
 		userService.getLoginUserInfo(tempLoginUserBean);
 		
-		if (loginUserBean.isUserLogin() == true) {
+		if(loginUserBean.isUserLogin() == true) {
 			return "user/login_success";
-			// return "main";
 		} else {
 			return "user/login_fail";
 		}
-		
 	}
+	
 
 	@GetMapping("/join")
 	public String join(@ModelAttribute("joinUserBean") UserBean joinUserBean) {
@@ -61,6 +61,7 @@ public class UserController {
 
 			return "user/join";
 		}
+		
 		userService.addUserInfo(joinUserBean);
 
 		return "user/join_success";
@@ -81,6 +82,15 @@ public class UserController {
 	
 	@GetMapping("/not_login")
 	public String not_login() {
+		
 		return "user/not_login";
+		
 	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		UserValidator validator1 = new UserValidator();
+		binder.addValidators(validator1);
+	}
+	
 }

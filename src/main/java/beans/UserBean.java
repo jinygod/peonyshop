@@ -17,6 +17,8 @@ public class UserBean {
 	@Size(min =4, max=20)
 	private String user_pw2;
 	
+	private boolean userIdExist;
+	
 	@Size(min =1, max=5)
 	private String user_name;
 	
@@ -43,6 +45,7 @@ public class UserBean {
 
 	public UserBean() {
 		this.userLogin = false;
+		this.userIdExist = false;
 	}
 
 	public String getUser_id() {
@@ -141,5 +144,14 @@ public class UserBean {
 		this.userLogin = userLogin;
 	}
 
+	public boolean isUserIdExist() {
+		return userIdExist;
+	}
+
+	public void setUserIdExist(boolean userIdExist) {
+		this.userIdExist = userIdExist;
+	}
+
+	
 	
 }

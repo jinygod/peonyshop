@@ -30,9 +30,6 @@
 		<a href= '${root }notice/main'>목록</a>	
 		<a href= '${root }notice/modify'>수정</a>
 		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>	
-<<<<<<< HEAD
-		
-=======
->>>>>>> 1929d59f65eb9e19052c34a41b64660379ccc7b8
+
 </body>
 </html>

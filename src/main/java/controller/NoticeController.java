@@ -43,14 +43,9 @@ public class NoticeController {
 		
 		NoticeBean readNotice = noticeService.getReadNotice(notice_idx);
 		
-<<<<<<< HEAD
 		model.addAttribute("readNotice", readNotice);
 		model.addAttribute("notice_idx", notice_idx);
-=======
 		model.addAttribute("loginAdminBean", loginAdminBean);
-		 model.addAttribute("readNotice", readNotice);
-		 model.addAttribute("notice_idx", notice_idx);
->>>>>>> 1929d59f65eb9e19052c34a41b64660379ccc7b8
 		
 		return "notice/read";
 	}
