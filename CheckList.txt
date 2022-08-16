@@ -7,6 +7,7 @@ NoticeMapper에 있음
 Multiple Contexts have a path of "/peonyshop". ==> Servers 우클릭 modules 에서 path 다 삭제하기
 
 로그인 유효성검사
+비밀번호/비밀번호 확인
 로그아웃 기능
 정보수정 기능
 notice 수정

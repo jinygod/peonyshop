@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
@@ -31,7 +30,5 @@
 		<a href= '${root }notice/main'>목록</a>	
 		<a href= '${root }notice/modify'>수정</a>
 		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>	
-		
-
 </body>
 </html>
