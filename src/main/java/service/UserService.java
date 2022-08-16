@@ -33,8 +33,6 @@ public class UserService {
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
 			loginUserBean.setUserLogin(true);
 			
-			
-			
 		}
 	
 	}

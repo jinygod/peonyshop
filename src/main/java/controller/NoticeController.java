@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import beans.AdminBean;
 import beans.NoticeBean;
 import service.NoticeService;
 
@@ -20,6 +23,9 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
+	
+	@Resource(name = "loginAdminBean")
+	private AdminBean loginAdminBean;
 
 	@GetMapping("/main")
 	public String main(NoticeBean noticeBean, Model model){
@@ -37,8 +43,14 @@ public class NoticeController {
 		
 		NoticeBean readNotice = noticeService.getReadNotice(notice_idx);
 		
+<<<<<<< HEAD
 		model.addAttribute("readNotice", readNotice);
 		model.addAttribute("notice_idx", notice_idx);
+=======
+		model.addAttribute("loginAdminBean", loginAdminBean);
+		 model.addAttribute("readNotice", readNotice);
+		 model.addAttribute("notice_idx", notice_idx);
+>>>>>>> 1929d59f65eb9e19052c34a41b64660379ccc7b8
 		
 		return "notice/read";
 	}

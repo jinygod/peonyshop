@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <게시판 종류>
+=======
+
+>>>>>>> 1929d59f65eb9e19052c34a41b64660379ccc7b8
 create table user_table (
 user_idx number constraint USER_PK primary key,
 user_id varchar2(20) not null,
@@ -35,3 +39,19 @@ create sequence notice_seq
 start with 1
 increment by 1
 minvalue 1;
+<<<<<<< HEAD
+=======
+
+Create table topmenu_table(
+    topmenu_idx number constraint TOPMENU_PK primary key,
+    topmenu_name varchar2(20) not null
+);
+
+Insert into topmenu_table values (1, 'top'); 
+Insert into topmenu_table values (2, 'bottom'); 
+Insert into topmenu_table values (3, 'dress'); 
+Insert into topmenu_table values (4, 'shoes'); 
+Insert into topmenu_table values (5, 'accessory');
+Insert into topmenu_table values (6, 'notice'); 
+
+>>>>>>> 1929d59f65eb9e19052c34a41b64660379ccc7b8
