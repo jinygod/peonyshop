@@ -1,12 +1,11 @@
-오류 : 로그인에 성공 -> 뒤로가기 후 틀린 비밀번호를 입력 -> 로그인이 되지 않아야 하지만 됨.
-	-> 로그인 성공 하면 로그인 페이지를 들어갈 수 없어야 함.
-
 @SelectKey(statement = "select notice_seq.nextval from dual", keyProperty = "notice_idx", before = true, resultType = int.class) 가 뭘까?
 NoticeMapper에 있음
 
 Multiple Contexts have a path of "/peonyshop". ==> Servers 우클릭 modules 에서 path 다 삭제하기
 
+<할 일>
 로그인 유효성검사
+
 비밀번호/비밀번호 확인
 로그아웃 기능
 정보수정 기능
@@ -15,7 +14,6 @@ Q&A
 카테고리
 관리자 페이지
 
-로그인상태에 따른 화면 구성(로그인, 회원가입 / 마이페이지, 정보수정, 로그아웃)
 
 상품리스트
 상품 상세 페이지
@@ -28,4 +26,12 @@ Q&A
 
 *회원관리
 *교환/반품
+
+
+<오류>
+로그인 성공 -> 주소창에 강제로 user/login으로 이동 -> 다시 로그인할 때 틀린 비밀번호 입력 -> 로그인 성공되는 오류 발생
  
+
+ 
+<해결>
+로그인상태에 따른 화면 구성(로그인, 회원가입 / 마이페이지, 정보수정, 로그아웃)

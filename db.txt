@@ -35,3 +35,16 @@ create sequence notice_seq
 start with 1
 increment by 1
 minvalue 1;
+
+Create table topmenu_table(
+    topmenu_idx number constraint TOPMENU_PK primary key,
+    topmenu_name varchar2(20) not null
+);
+
+Insert into topmenu_table values (1, 'top'); 
+Insert into topmenu_table values (2, 'bottom'); 
+Insert into topmenu_table values (3, 'dress'); 
+Insert into topmenu_table values (4, 'shoes'); 
+Insert into topmenu_table values (5, 'accessory');
+Insert into topmenu_table values (6, 'notice'); 
+

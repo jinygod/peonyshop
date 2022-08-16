@@ -6,12 +6,3 @@
 	alert('로그인 되었습니다')
 	location.href='${root}main'
 </script>
-
-<%-- <%
-	// request.setAttribute("loginUserBean", loginUserBean);
-
-	RequestDispatcher dispatch = request.getRequestDispatcher(request.getContentPath() + "/main");
-	dispatch.forward(request, response);
-	
-%> --%>
-

@@ -5,6 +5,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,15 +31,21 @@ public class UserController {
 	}
 
 	@PostMapping("/login_pro")
-	public String login_pro(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean) {
-
+	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,
+							BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/login";
+		}
+			
 		userService.getLoginUserInfo(tempLoginUserBean);
-
-
+		
 		if (loginUserBean.isUserLogin() == true) {
 			return "user/login_success";
-		} 
+			// return "main";
+		} else {
 			return "user/login_fail";
+		}
 		
 	}
 
@@ -66,6 +73,14 @@ public class UserController {
 
 	@GetMapping("/logout")
 	public String logout() {
+		
+		loginUserBean.setUserLogin(false);
+		
 		return "user/logout";
+	}
+	
+	@GetMapping("/not_login")
+	public String not_login() {
+		return "user/not_login";
 	}
 }
