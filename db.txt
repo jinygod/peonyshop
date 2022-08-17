@@ -51,7 +51,7 @@ Insert into topmenu_table values (5, 'accessory');
 Insert into topmenu_table values (6, 'notice'); 
 
 CREATE TABLE goods_table(
-    goods_no number constraint GOODS_PK primary key,
+    goods_idx number constraint GOODS_PK primary key,
     goods_category varchar2(100),
     goods_name varchar2(100),
     goods_content varchar2(4000),

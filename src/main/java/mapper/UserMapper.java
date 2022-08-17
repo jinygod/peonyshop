@@ -2,6 +2,7 @@ package mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import beans.UserBean;
 
@@ -29,4 +30,10 @@ public interface UserMapper {
 			+ "from user_table "
 			+ "where user_idx = #{user_idx}")
 	UserBean getModifyUserInfo(String user_idx);
+	
+	@Update("update user_table " +
+			"set user_pw = #{user_pw}, user_email = #{user_email}, user_phone = #{user_phone} " +
+			"user_zipcode = #{user_zipcode}, user_addr1 = #{user_addr1}, user_addr2 = #{user_addr2} " + 
+			"where user_idx = #{user_idx}")
+	void modifyUserInfo(UserBean modifyUserBean);
 }
