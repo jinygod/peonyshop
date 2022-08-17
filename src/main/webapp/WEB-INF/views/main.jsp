@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>PEONY SHOP</title>
 <!-- 	<script>
 		if(login) {
 			alert('로그인 되었습니다')

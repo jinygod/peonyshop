@@ -23,6 +23,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
 
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -48,7 +49,6 @@ public class UserController {
 		}
 	}
 	
-
 	@GetMapping("/join")
 	public String join(@ModelAttribute("joinUserBean") UserBean joinUserBean) {
 		return "user/join";
@@ -82,7 +82,7 @@ public class UserController {
 			return "user/modify";
 		}
 		
-	//	userService.modifyUserInfo(modifyUserBean);
+		userService.modifyUserInfo(modifyUserBean);
 		
 		return "user/modify_success";
 	}
@@ -102,6 +102,7 @@ public class UserController {
 		
 	}
 	
+	// pw=pw2 검사 , 어노테이션으로 쓸수 없는 유효성검사를 할떄 validator 클래스를 만들고 호출함
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		UserValidator validator1 = new UserValidator();

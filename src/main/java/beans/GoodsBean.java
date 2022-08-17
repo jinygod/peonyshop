@@ -8,9 +8,9 @@ public class GoodsBean {
 	private String goods_category;
 	private String goods_name;
 	private String goods_content;
-	
+	private String goods_menu_idx;
 
-	private String goods_sell_price;
+	private int goods_sell_price;
 	private String goods_keyword;
 	private String goods_readcnt;
 	private String goods_pick;
@@ -49,10 +49,10 @@ public class GoodsBean {
 	public void setGoods_content(String goods_content) {
 		this.goods_content = goods_content;
 	}
-	public String getGoods_sell_price() {
+	public int getGoods_sell_price() {
 		return goods_sell_price;
 	}
-	public void setGoods_sell_price(String goods_sell_price) {
+	public void setGoods_sell_price(int goods_sell_price) {
 		this.goods_sell_price = goods_sell_price;
 	}
 	public String getGoods_keyword() {
@@ -91,6 +91,13 @@ public class GoodsBean {
 	public void setUpload_thumbnail(MultipartFile upload_thumbnail) {
 		this.upload_thumbnail = upload_thumbnail;
 	}
+	public String getGoods_menu_idx() {
+		return goods_menu_idx;
+	}
+	public void setGoods_menu_idx(String goods_menu_idx) {
+		this.goods_menu_idx = goods_menu_idx;
+	}
+	
 	
 	
 	

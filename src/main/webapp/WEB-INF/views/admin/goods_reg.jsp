@@ -10,17 +10,17 @@
 <title>상품 등록</title>
 </head>
 <body align = center>
-	<form:form action="${root }admin/goodsreg_pro" method='post' modelAttribute="goodsRegBean" enctype="multipart/form-data">
+	<form:form action="${root }admin/goods_reg_pro" method='post' modelAttribute="goodsRegBean" enctype="multipart/form-data">
 		<form:label path="goods_name">상품명</form:label><br/>
 		<form:input path="goods_name" /><br/>
 		<form:errors path='goods_name' style='color:red' /><br/>
 		
 		<form:select path="goods_category">카테고리<br/>
-		<form:option value="1" label="top" />
-		<form:option value="2" label="bottom" />
-		<form:option value="3" label="dress" />
-		<form:option value="4" label="shoes" />
-		<form:option value="5" label="accessory" />
+		<form:option value="top" label="top" />
+		<form:option value="bottom" label="bottom" />
+		<form:option value="dress" label="dress" />
+		<form:option value="shoes" label="shoes" />
+		<form:option value="accessory" label="accessory" />
 		</form:select>
 				
 		<form:label path="goods_content">상세정보</form:label><br/>

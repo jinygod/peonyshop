@@ -63,4 +63,11 @@ public class UserService {
 		modifyUserBean.setUser_addr2(tempModifyUserBean.getUser_addr2());
 		
 	}
+	
+	public void modifyUserInfo(UserBean modifyUserBean) {
+		
+		modifyUserBean.setUser_idx(loginUserBean.getUser_idx());
+		
+		userDao.modifyUserInfo(modifyUserBean);
+	}
 }

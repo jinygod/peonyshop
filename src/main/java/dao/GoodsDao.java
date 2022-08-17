@@ -15,4 +15,9 @@ public class GoodsDao {
 	public void addGoodsInfo(GoodsBean goodsRegBean) {
 		goodsMapper.addGoodsInfo(goodsRegBean);
 	}
+	
+	public GoodsBean getGoodsInfo(GoodsBean getGoodsInfo) {
+		return goodsMapper.getGoodsInfo(getGoodsInfo);
+	
+	}
 }

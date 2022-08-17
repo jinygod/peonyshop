@@ -15,7 +15,7 @@
 for
 <div>
 <a href = "${root }">
-<img src="${root }goods/goods_detail?goods_idx=${goodsRegBean.goods_idx}&goods_thumbnail=${goodsRegBean.goods_thumbnail }" width=200px/>
+<img src="${root }goods/goods_detail" width=200px/>
 상품명
 가격
 </a>
