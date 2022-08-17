@@ -44,8 +44,8 @@ public class UserBean {
 	private boolean userLogin;
 
 	public UserBean() {
-		this.userLogin = false;
 		this.userIdExist = false;
+		this.userLogin = false;
 	}
 
 	public String getUser_id() {

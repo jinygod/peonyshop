@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<h1>공지사항</h1>
 		<label for="notice_writer">작성자</label>
 		<input type="text"

@@ -9,7 +9,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
+
 	<form:form action="${root }user/login_pro" method='post' modelAttribute="tempLoginUserBean">
 			<form:label path="user_id">아이디</form:label>
 			<form:input path="user_id" /><br/>

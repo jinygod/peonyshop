@@ -35,9 +35,9 @@ public class UserController {
 	@PostMapping("/login_pro")
 	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
 		
-		if(result.hasErrors()) {
-			return "user/login";
-		}
+//		if(result.hasErrors()) {
+//			return "user/login";
+//		}
 		
 		userService.getLoginUserInfo(tempLoginUserBean);
 		

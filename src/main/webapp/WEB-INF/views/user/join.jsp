@@ -41,7 +41,8 @@ function resetUserIdExist(){
 	$("#userIdExist").val('false')
 }
 </script>
-<body>
+<body align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<form:form action="${root }user/join_pro" method='post'
 		modelAttribute="joinUserBean">
 		<form:hidden path="userIdExist" />

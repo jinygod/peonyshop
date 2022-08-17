@@ -50,4 +50,21 @@ Insert into topmenu_table values (4, 'shoes');
 Insert into topmenu_table values (5, 'accessory');
 Insert into topmenu_table values (6, 'notice'); 
 
+CREATE TABLE goods_table(
+    goods_no number constraint GOODS_PK primary key,
+    goods_category varchar2(100),
+    goods_name varchar2(100),
+    goods_content varchar2(4000),
+    goods_sell_price number,
+    goods_keyword varchar2(100),
+    goods_readcnt number,
+    goods_pick varchar2(100),
+    goods_thumbnail varchar2(1000),
+    goods_gubun varchar2(1)
+    );
+    
+create sequence goods_seq
+start with 1
+increment by 1
+minvalue 1;
 commit;

@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -25,6 +26,7 @@ import beans.UserBean;
 import interceptor.CheckLoginInterceptor;
 import interceptor.TopMenuInterceptor;
 import mapper.AdminMapper;
+import mapper.GoodsMapper;
 import mapper.NoticeMapper;
 import mapper.TopMenuMapper;
 import mapper.UserMapper;
@@ -128,6 +130,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 			return factoryBean;
 		}
 		
+		@Bean
+		public MapperFactoryBean<GoodsMapper> getGoodsMapper(SqlSessionFactory factory) throws Exception{
+			MapperFactoryBean<GoodsMapper> factoryBean = new MapperFactoryBean<GoodsMapper>(GoodsMapper.class);
+			factoryBean.setSqlSessionFactory(factory);
+			return factoryBean;
+		}
+		
 		@Override
 		public void addInterceptors(InterceptorRegistry registry) {
 			// TODO Auto-generated method stub
@@ -153,6 +162,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 			ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
 			res.setBasenames("/WEB-INF/properties/error_message");
 			return res;
+		}
+		
+		// multipart/form-data 세팅 시 일반적으로 요청을 할때 데이터를 전달하는 방식이 아닌 다른 방식을 사용하기 때문에
+		// Controller에서 자동으로 주입되지 않는 현상이 나타나기 때문에 아래 빈을 정의해줌
+		@Bean
+		public StandardServletMultipartResolver multipartResolver() {
+			return new StandardServletMultipartResolver();
 		}
 		
 }

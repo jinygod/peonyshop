@@ -24,9 +24,10 @@
 
 <title>Insert title here</title>
 </head>
-<body>
+<body align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<h1>공지사항</h1>
-	<table>
+	<table align = center>
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
