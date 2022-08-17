@@ -24,5 +24,9 @@ public interface UserMapper {
 			"where user_id=#{user_id} and user_pw=#{user_pw}")
 	UserBean getLoginUserInfo(UserBean tempLoginUserBean);
 	
-	
+	@Select("select user_id, user_name, user_birth, user_email, "
+			+ "user_phone, user_zipcode, user_addr1, user_addr2 "
+			+ "from user_table "
+			+ "where user_idx = #{user_idx}")
+	UserBean getModifyUserInfo(String user_idx);
 }

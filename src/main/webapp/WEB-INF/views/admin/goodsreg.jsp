@@ -16,11 +16,11 @@
 		<form:errors path='goods_name' style='color:red' /><br/>
 		
 		<form:select path="goods_category">카테고리<br/>
-		<form:option value="top" label="top" />
-		<form:option value="bottom" label="bottom" />
-		<form:option value="dress" label="dress" />
-		<form:option value="shoes" label="shoes" />
-		<form:option value="accessory" label="accessory" />
+		<form:option value="1" label="top" />
+		<form:option value="2" label="bottom" />
+		<form:option value="3" label="dress" />
+		<form:option value="4" label="shoes" />
+		<form:option value="5" label="accessory" />
 		</form:select>
 				
 		<form:label path="goods_content">상세정보</form:label><br/>

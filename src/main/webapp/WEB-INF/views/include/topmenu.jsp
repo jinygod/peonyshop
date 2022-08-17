@@ -21,7 +21,7 @@
 	<h1 align = 'center'>PEONY SHOP</h1>
 	<div align = 'center'>
 	<c:forEach var='obj' items='${topMenuList }'>
-		<a href=#>${obj.topmenu_name }</a>
+		<a href='${root}goods/main?topmenu_idx=${obj.topmenu_idx}'>${obj.topmenu_name }</a>
 	</c:forEach>
 	</div>
 	<hr>

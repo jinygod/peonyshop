@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class GoodsBean {
 
-	private String goods_no;
+	private String goods_idx;
 	private String goods_category;
 	private String goods_name;
 	private String goods_content;
@@ -25,11 +25,11 @@ public class GoodsBean {
 	
 
 	
-	public String getGoods_no() {
-		return goods_no;
+	public String getGoods_idx() {
+		return goods_idx;
 	}
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
+	public void setGoods_idx(String goods_idx) {
+		this.goods_idx = goods_idx;
 	}
 	public String getGoods_category() {
 		return goods_category;
