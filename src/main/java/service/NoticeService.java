@@ -2,7 +2,6 @@ package service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +22,8 @@ public class NoticeService {
 		return noticeDao.getNoticeList(noticeBean);
 	}
 	
-	public NoticeBean getReadNotice(NoticeBean readNoticeBean) {
-		return noticeDao.getReadNotice(readNoticeBean);
+	public NoticeBean getReadNotice(int notice_idx) {
+		return noticeDao.getReadNotice(notice_idx);
 	}
 	
 	public void deleteNotice(NoticeBean deleteNoticeBean) {

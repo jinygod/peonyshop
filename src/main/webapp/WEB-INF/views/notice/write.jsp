@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<form:form action="${root }notice/write_pro" method='post' modelAttribute="writeNoticeBean">
 		<form:label path="notice_title">글 제목</form:label><br/>
 		<form:input path="notice_title" /><br/>

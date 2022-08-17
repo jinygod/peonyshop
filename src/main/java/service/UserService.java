@@ -10,9 +10,21 @@ import dao.UserDao;
 
 @Service
 public class UserService {
+	
 
+	
 	@Autowired
 	private UserDao userDao;
+
+	public boolean checkUserIdExist(String user_id) {
+		String user_name = userDao.checkUserIdExist(user_id);
+
+		if(user_name == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -33,9 +45,22 @@ public class UserService {
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
 			loginUserBean.setUserLogin(true);
 			
-			
-			
 		}
 	
+	}
+	
+	public void getModifyUserInfo(UserBean modifyUserBean) {
+		UserBean tempModifyUserBean = userDao.getModifyUserInfo(loginUserBean.getUser_idx());
+		
+		modifyUserBean.setUser_id(tempModifyUserBean.getUser_id());
+		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
+		modifyUserBean.setUser_idx(tempModifyUserBean.getUser_idx());
+		modifyUserBean.setUser_birth(tempModifyUserBean.getUser_birth());
+		modifyUserBean.setUser_email(tempModifyUserBean.getUser_email());
+		modifyUserBean.setUser_phone(tempModifyUserBean.getUser_phone());
+		modifyUserBean.setUser_zipcode(tempModifyUserBean.getUser_zipcode());
+		modifyUserBean.setUser_addr1(tempModifyUserBean.getUser_addr1());
+		modifyUserBean.setUser_addr2(tempModifyUserBean.getUser_addr2());
+		
 	}
 }

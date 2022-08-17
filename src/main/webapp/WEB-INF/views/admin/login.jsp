@@ -10,9 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<form:form action="${root }admin/login_pro" method='post' modelAttribute="tempLoginAdminBean">
 			<form:label path="admin_code">관리자 코드</form:label>
-			<form:password path="admin_code" /><br/>
+			<form:password path="admin_code" />
 			<form:errors path='admin_code' style='color:red' />
 			<form:button>확인</form:button>
 	</form:form>

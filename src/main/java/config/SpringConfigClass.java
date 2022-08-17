@@ -1,6 +1,8 @@
 package config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -65,6 +67,16 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
 		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
 		encodingFilter.setEncoding("UTF-8");
 		return new Filter[] {encodingFilter};
+	}
+	
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		// TODO Auto-generated method stub
+		super.customizeRegistration(registration);
+		
+		// 임시폴더 경로 , 업로드하는 파일의 최대용량(BYTE), 파일데이터를 포함한 전체 요청 정보의 용량, 파일의 임계값(0주면 알아서받음)
+		MultipartConfigElement config1 = new MultipartConfigElement(null, 52428800, 524288000, 0);
+		registration.setMultipartConfig(config1);
 	}
 }
 

@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,13 +18,12 @@ public class NoticeDao {
 		noticeMapper.addNoticeInfo(writeNoticeBean);
 	}
 	
-	//오류 추정
 	public 	List<NoticeBean> getNoticeList(NoticeBean noticeBean) {
 		return noticeMapper.getNoticeList(noticeBean);
 	}
 	
-	public NoticeBean getReadNotice(NoticeBean readNoticeBean) {
-		return noticeMapper.getReadNotice(readNoticeBean);
+	public NoticeBean getReadNotice(int notice_idx) {
+		return noticeMapper.getReadNotice(notice_idx);
 	}
 	
 	public void deleteNotice(NoticeBean deleteNoticeBean) {

@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 목록</title>
 </head>
 <body>
-	<h1>Hello Spring MVC Java</h1>
-	<img src="image/icon-spring-framework.svg"/>
+<h1>리스트</h1>
 </body>
 </html>

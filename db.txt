@@ -1,10 +1,12 @@
 <게시판 종류>
-create table user_table (create table user_table (
+=======
+
+create table user_table (
 user_idx number constraint USER_PK primary key,
 user_id varchar2(20) not null,
 user_pw varchar2(20) not null,
 user_name varchar2(20) not null,
-user_birth date not null,
+user_birth varchar2(20) not null,
 user_email varchar2(30) not null,
 user_phone varchar2(13) not null,
 user_zipcode varchar2(10) not null,
@@ -35,38 +37,34 @@ create sequence notice_seq
 start with 1
 increment by 1
 minvalue 1;
-user_idx number constraint USER_PK primary key,
-user_id varchar2(20) not null,
-user_pw varchar2(20) not null,
-user_name varchar2(20) not null,
-user_birth date not null,
-user_email varchar2(30) not null,
-user_phone varchar2(13) not null,
-user_zipcode varchar2(10) not null,
-user_addr1 varchar2(100) not null,
-user_addr2 varchar2(100) not null
+
+Create table topmenu_table(
+    topmenu_idx number constraint TOPMENU_PK primary key,
+    topmenu_name varchar2(20) not null
 );
 
-create sequence user_seq
+Insert into topmenu_table values (1, 'top'); 
+Insert into topmenu_table values (2, 'bottom'); 
+Insert into topmenu_table values (3, 'dress'); 
+Insert into topmenu_table values (4, 'shoes'); 
+Insert into topmenu_table values (5, 'accessory');
+Insert into topmenu_table values (6, 'notice'); 
+
+CREATE TABLE goods_table(
+    goods_no number constraint GOODS_PK primary key,
+    goods_category varchar2(100),
+    goods_name varchar2(100),
+    goods_content varchar2(4000),
+    goods_sell_price number,
+    goods_keyword varchar2(100),
+    goods_readcnt number,
+    goods_pick varchar2(100),
+    goods_thumbnail varchar2(1000),
+    goods_gubun varchar2(1)
+    );
+    
+create sequence goods_seq
 start with 1
 increment by 1
 minvalue 1;
-
-create table admin_table (
-admin_code varchar2(20),
-admin_name varchar2(20) not null
-);
-
-insert into admin_table values (12345, '피오니');
-
-create table notice_table (
-notice_idx number constraint NOTICE_PK primary key,
-notice_title varchar2(100),
-notice_content varchar2(4000),
-notice_date date
-);
-
-create sequence notice_seq
-start with 1
-increment by 1
-minvalue 1;
+commit;
