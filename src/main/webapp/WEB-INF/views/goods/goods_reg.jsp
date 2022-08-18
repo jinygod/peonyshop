@@ -10,10 +10,9 @@
 <title>상품 등록</title>
 </head>
 <body align = center>
-	<form:form action="${root }admin/goods_reg_pro" method='post' modelAttribute="goodsRegBean" enctype="multipart/form-data">
+	<form:form action="${root }goods/goods_reg_pro" method='post' modelAttribute="goodsRegBean" enctype="multipart/form-data">
 		<form:label path="goods_name">상품명</form:label><br/>
 		<form:input path="goods_name" /><br/>
-		<form:errors path='goods_name' style='color:red' /><br/>
 		
 		<form:select path="goods_category">카테고리<br/>
 		<form:option value="top" label="top" />
@@ -31,9 +30,10 @@
 		<form:input path="goods_sell_price" /><br/>
 		<form:errors path='goods_sell_price' style='color:red' /><br/>
 		
+		<div>
 		<form:label path="upload_thumbnail">썸네일사진</form:label><br/>
-		<form:input type='file' path="upload_thumbnail" accept="image/*"/><br/>
-				
+		<form:input type="file" path="upload_thumbnail" /><br/>
+		</div>
 		<form:button>확인</form:button>
 	</form:form>
 </body>

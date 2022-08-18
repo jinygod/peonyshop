@@ -8,27 +8,24 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 
+
+<style>
+.content{
+	background-color: green;
+	display : flex;
+	
+}
+</style>
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 
-for
-<div>
-<a href = "${root }">
-<img src="${root }goods/goods_detail" width=200px/>
-상품명
-가격
-</a>
+<div class = 'content'>
+<c:forEach var='obj' items='${goodsList }'>
+		<a href='${root}goods/goods_detail?topmenu_name=${topmenu_name}&goods_idx=${obj.goods_idx}'>
+		<img src="${root }upload/${obj.goods_thumbnail}" width=300px, height=400px/><br/>
+		${obj.goods_name } <br/>${obj.goods_sell_price } <br/> </a>
+	</c:forEach>
 </div>
-
-이미지
-상품명
-가격
-
-이미지
-상품명
-가격
-<br/>
-
 </body>
 </html>

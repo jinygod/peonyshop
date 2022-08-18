@@ -67,4 +67,11 @@ create sequence goods_seq
 start with 1
 increment by 1
 minvalue 1;
+
+CREATE TABLE basket_table(
+    basket_idx number constraint BASKET_PK primary key
+    , user_idx number, goods_idx number, basket_goods_amount number,
+CONSTRAINT basket_user_fk foreign key (user_idx) references user_table (user_idx)
+	);
+
 commit;

@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.AdminBean;
-import beans.GoodsBean;
 import service.AdminService;
 import service.GoodsService;
 
@@ -22,8 +20,6 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@Autowired
-	private GoodsService goodsService;
 	
 	@Resource(name ="loginAdminBean")
 	private AdminBean loginAdminBean;
@@ -47,31 +43,11 @@ public class AdminController {
 	
 	@GetMapping("/main")
 	public String main() {
+		
+
 		return "admin/main";
 	}
 	
-	@GetMapping("/goods_reg")
-	public String goods_reg(@ModelAttribute("goodsRegBean") GoodsBean goodsRegBean) {
-		
-		goodsService.addGoodsInfo(goodsRegBean);
-		
-		return "admin/goods_reg";
-		
-	}
-	
-	@PostMapping("/goods_reg_pro")
-	public String goods_reg_pro(@ModelAttribute("goodsRegBean") GoodsBean goodsRegBean) {
-		
-		goodsService.addGoodsInfo(goodsRegBean);
-		
-		return "admin/goods_reg_success";
-	}
-	
-	@GetMapping("/goods_list")
-	public String goods_list() {
-		
-		return "admin/goods_list";
-	}
-	
+
 	
 }
