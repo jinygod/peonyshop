@@ -11,5 +11,7 @@
 <body>
 	<a href='${root }goods/goods_list'>상품 목록</a>
 	<a href='${root }goods/goods_reg'>상품 등록</a>
+	<a href='${root }'>홈으로</a>
+	
 </body>
 </html>
