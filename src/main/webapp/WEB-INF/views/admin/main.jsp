@@ -9,7 +9,7 @@
 <title>Admin Main</title>
 </head>
 <body>
-	<a href='${root }admin/goods_list'>상품 목록</a>
-	<a href='${root }admin/goods_reg'>상품 등록</a>
+	<a href='${root }goods/goods_list'>상품 목록</a>
+	<a href='${root }goods/goods_reg'>상품 등록</a>
 </body>
 </html>

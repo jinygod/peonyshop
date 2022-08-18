@@ -1,6 +1,7 @@
 package service;
 
 import java.io.File;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -44,6 +45,7 @@ public class GoodsService {
 	
 	public void addGoodsInfo(GoodsBean goodsRegBean) {
 		
+		
 		MultipartFile upload_thumbnail = goodsRegBean.getUpload_thumbnail();
 		
 		if(upload_thumbnail.getSize() > 0) {
@@ -51,15 +53,15 @@ public class GoodsService {
 			goodsRegBean.setGoods_thumbnail(goods_name);
 		}
 		
-		goodsRegBean.setGoods_menu_idx(loginUserBean.getUser_idx());
-		
-		goodsDao.addGoodsInfo(goodsRegBean);	
-		
+		goodsDao.addGoodsInfo(goodsRegBean);
 		
 	}
 	
-	public GoodsBean getGoodsInfo(GoodsBean getGoodsInfo) {
-		return goodsDao.getGoodsInfo(getGoodsInfo);
+	public List<GoodsBean> getGoodsList(String topmenu_name) {
+		return goodsDao.getGoodsList(topmenu_name);
 	}
 		
+	public GoodsBean getGoodsDetail(String goods_idx) {
+		return goodsDao.getGoodsDetail(goods_idx);
+	}
 }

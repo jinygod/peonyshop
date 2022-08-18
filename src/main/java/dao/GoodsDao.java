@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,8 +18,11 @@ public class GoodsDao {
 		goodsMapper.addGoodsInfo(goodsRegBean);
 	}
 	
-	public GoodsBean getGoodsInfo(GoodsBean getGoodsInfo) {
-		return goodsMapper.getGoodsInfo(getGoodsInfo);
+	public List<GoodsBean> getGoodsList(String topmenu_name) {
+		return goodsMapper.getGoodsList(topmenu_name);
+	}
 	
+	public GoodsBean getGoodsDetail(String goods_idx) {
+		return goodsMapper.getGoodsDetail(goods_idx);
 	}
 }
