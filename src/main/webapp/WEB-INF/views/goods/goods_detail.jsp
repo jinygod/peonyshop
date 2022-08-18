@@ -9,11 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-	.spinbtn {
-		behavior:url(./spinbtn.htc);
-	}
-</style>
 <meta charset="UTF-8">
 <title>상품 상세페이지</title>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
@@ -27,8 +22,11 @@
 	총 가격 : <br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
 	
-	<a href="${root}goods/basket">구매</a>
-	<a href="${root}goods/basket?user_idx=${user_idx}">장바구니</a>
+<%-- 	<a href="${root}goods/basket">구매</a>
+	<a href="${root}goods/basket?user_idx=${user_idx}">장바구니</a> --%>
+    <input type="submit" value="바로구매" onclick="javascript: form.action='${root}goods/buy?user_idx=${user_idx }';"/>
+    <input type="submit" value="장바구니" onclick="javascript: form.action='${root}goods/basket?user_idx=1';"/>
+	
 	</form:form>
 </body>
 </html>

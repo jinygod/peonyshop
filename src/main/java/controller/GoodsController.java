@@ -40,7 +40,6 @@ public class GoodsController {
 
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
-		
 		return "goods/goods_detail";
 	}
 	
@@ -67,11 +66,28 @@ public class GoodsController {
 		return "goods/goods_list";
 	}
 	
-	@GetMapping("/basket")
+	@PostMapping("/basket")
 	public String basket(@RequestParam("user_idx") String user_idx, Model model) {
+		
 		model.addAttribute("user_idx", user_idx);
 		
 		return "goods/basket";
+	}
+	
+	@GetMapping("/basket")
+	public String basket2(@RequestParam("user_idx") String user_idx, Model model) {
+		
+		model.addAttribute("user_idx", user_idx);
+		
+		return "goods/basket";
+	}
+	
+	@PostMapping("/buy")
+	public String buy(@RequestParam("user_idx") String user_idx, Model model) {
+		
+		model.addAttribute("user_idx", user_idx);
+		
+		return "goods/buy";
 	}
 	
 }

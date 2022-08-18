@@ -18,8 +18,8 @@
 	<a href='${root }admin/login'>관리자페이지</a>
 	<a href='${root }notice/main'>공지사항</a>
 	</div>
-	
-	<h1 align = 'center'>PEONY SHOP</h1>
+	<a href = '${root }'>
+	<h1 align = 'center'>PEONY SHOP</h1></a>
 	<div align = 'center'>
 	<c:forEach var='obj' items='${topMenuList }'>
 		<a href='${root}goods/main?topmenu_name=${obj.topmenu_name}'>${obj.topmenu_name }</a>
