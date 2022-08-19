@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.GoodsBean;
+import beans.UserBean;
 import service.GoodsService;
 
 @Controller
@@ -22,12 +23,14 @@ public class GoodsController {
 	private GoodsService goodsService;
 
 	@GetMapping("/main")
-	public String main(@RequestParam("topmenu_name") String topmenu_name,  Model model) {
+	public String main(@RequestParam("topmenu_name") String topmenu_name,  Model model,
+			UserBean loginUserBean) {
 		
 		List<GoodsBean> goodsList = goodsService.getGoodsList(topmenu_name);
 		
 		model.addAttribute("goodsList", goodsList);
 		model.addAttribute("topmenu_name", topmenu_name);
+		model.addAttribute("user_idx", loginUserBean.getUser_idx());
 		
 		return "goods/main";
 	}
@@ -35,11 +38,15 @@ public class GoodsController {
 	@GetMapping("/goods_detail")
 	public String goods_detail(@RequestParam("topmenu_name") String topmenu_name,
 								@RequestParam("goods_idx") String goods_idx,
-								GoodsBean getGoodsDetail, Model model)  {
+								GoodsBean getGoodsDetail, Model model,
+								GoodsBean buyGoodsBean,
+								UserBean loginUserBean)  {
 		
-
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
+
+		model.addAttribute("user_idx", loginUserBean.getUser_idx());
+
 		return "goods/goods_detail";
 	}
 	
@@ -66,10 +73,10 @@ public class GoodsController {
 		return "goods/goods_list";
 	}
 	
-	@PostMapping("/basket")
-	public String basket(@RequestParam("user_idx") String user_idx, Model model) {
-		
-		model.addAttribute("user_idx", user_idx);
+
+	@GetMapping("/buy_pro")
+	public String buy_pro(UserBean loginUserBean) {
+
 		
 		return "goods/basket";
 	}

@@ -3,9 +3,15 @@ package beans;
 public class BasketBean {
 
 	private String bakset_idx;
+	
 	private String user_idx;
+	private String user_name;
 	private String goods_idx;
-	private String basket_goods_amount;
+	private String goods_name;
+	private String goods_sell_price;
+	
+	private String basket_goods_cnt;
+	
 	
 	public String getBakset_idx() {
 		return bakset_idx;
@@ -25,12 +31,31 @@ public class BasketBean {
 	public void setGoods_idx(String goods_idx) {
 		this.goods_idx = goods_idx;
 	}
-	public String getBasket_goods_amount() {
-		return basket_goods_amount;
+	public String getBasket_goods_cnt() {
+		return basket_goods_cnt;
 	}
-	public void setBasket_goods_amount(String basket_goods_amount) {
-		this.basket_goods_amount = basket_goods_amount;
+	public void setBasket_goods_cnt(String basket_goods_cnt) {
+		this.basket_goods_cnt = basket_goods_cnt;
 	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getGoods_name() {
+		return goods_name;
+	}
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
+	public String getGoods_sell_price() {
+		return goods_sell_price;
+	}
+	public void setGoods_sell_price(String goods_sell_price) {
+		this.goods_sell_price = goods_sell_price;
+	}
+	
 	
 	
 }

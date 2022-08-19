@@ -11,6 +11,7 @@ public class GoodsBean {
 	private String goods_menu_idx;
 
 	private int goods_sell_price;
+	private int goods_tot;
 	private String goods_keyword;
 	private String goods_readcnt;
 	private String goods_pick;
@@ -96,6 +97,12 @@ public class GoodsBean {
 	}
 	public void setGoods_menu_idx(String goods_menu_idx) {
 		this.goods_menu_idx = goods_menu_idx;
+	}
+	public int getGoods_tot() {
+		return goods_tot;
+	}
+	public void setGoods_tot(int goods_tot) {
+		this.goods_tot = goods_tot;
 	}
 	
 	

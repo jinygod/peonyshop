@@ -26,6 +26,7 @@ import beans.UserBean;
 import interceptor.CheckLoginInterceptor;
 import interceptor.TopMenuInterceptor;
 import mapper.AdminMapper;
+import mapper.BasketMapper;
 import mapper.GoodsMapper;
 import mapper.NoticeMapper;
 import mapper.TopMenuMapper;
@@ -133,6 +134,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 		@Bean
 		public MapperFactoryBean<GoodsMapper> getGoodsMapper(SqlSessionFactory factory) throws Exception{
 			MapperFactoryBean<GoodsMapper> factoryBean = new MapperFactoryBean<GoodsMapper>(GoodsMapper.class);
+			factoryBean.setSqlSessionFactory(factory);
+			return factoryBean;
+		}
+		
+		@Bean
+		public MapperFactoryBean<BasketMapper> getBasketMapper(SqlSessionFactory factory) throws Exception{
+			MapperFactoryBean<BasketMapper> factoryBean = new MapperFactoryBean<BasketMapper>(BasketMapper.class);
 			factoryBean.setSqlSessionFactory(factory);
 			return factoryBean;
 		}

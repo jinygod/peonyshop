@@ -69,9 +69,46 @@ increment by 1
 minvalue 1;
 
 CREATE TABLE basket_table(
-    basket_idx number constraint BASKET_PK primary key
-    , user_idx number, goods_idx number, basket_goods_amount number,
-CONSTRAINT basket_user_fk foreign key (user_idx) references user_table (user_idx)
+    basket_idx number constraint BASKET_PK primary key,
+    user_idx number,
+    user_name varchar2(20),
+    goods_idx number,
+    goods_name varchar2(20),
+    goods_sell_price number,
+    basket_goods_cnt number,
+    CONSTRAINT basket_user_fk foreign key (user_idx) references user_table (user_idx),
+    constraint basket_goods_fk foreign key (goods_idx) references goods_table (goods_idx)
 	);
+
+create sequence basket_seq
+start with 1
+increment by 1
+minvalue 1;
+
+create table order_table (
+order_idx number constraint ORDER_PK primary key,
+goods_idx number,
+goods_name	varchar2(20),
+order_price	number,
+order_cnt	number,
+order_tot	number,
+user_idx	number,
+user_name	varchar2(20),
+user_phone	varchar2(20),
+user_zipcode	varchar2(5),
+user_addr	varchar2(100),
+user_addr2	varchar2(30),
+order_pay_option	varchar2(20),
+order_pay_bank	varchar2(20),
+order_date	date,
+CONSTRAINT order_user_fk foreign key (user_idx) references user_table (user_idx),
+constraint order_goods_fk foreign key (goods_idx) references goods_table (goods_idx)
+);
+
+create sequence order_seq
+start with 1
+increment by 1
+minvalue 1;
+
 
 commit;
