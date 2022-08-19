@@ -9,6 +9,7 @@
 <html>
 <head>
 
+
 <script>
 
 	// 장바구니 버튼 클릭 (url에 파라미터값 받기)
@@ -39,6 +40,7 @@
 	}
 			
 </script>
+
 <meta charset="UTF-8">
 <title>상품 상세페이지</title>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
@@ -52,8 +54,10 @@
 	수량 : <input type='number' id='cnt' name='cnt' value='1' min='1' max='10' onClick="totalAmt()"><br/>
 	총 가격 : <input type='text' id="amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
+
 	<form:button>주문하기</form:button>
 	<input type = "button"  onClick = "basket()" value = "장바구니">
+
 	</form:form>
 
 </body>

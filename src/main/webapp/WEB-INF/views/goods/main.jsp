@@ -12,8 +12,11 @@
 
 <style>
 .content{
+    padding-right: 300px;
+    padding-left: 300px;
 	background-color: green;
 	display : flex;
+	align: center;
 	
 }
 </style>
