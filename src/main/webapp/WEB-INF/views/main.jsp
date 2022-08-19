@@ -6,7 +6,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+<<<<<<< Updated upstream
 	<title>Insert title here</title>
+=======
+	<title>PEONY SHOP</title>
+>>>>>>> Stashed changes
 <!-- 	<script>
 		if(login) {
 			alert('로그인 되었습니다')

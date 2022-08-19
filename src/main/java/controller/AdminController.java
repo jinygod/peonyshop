@@ -21,8 +21,11 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
+<<<<<<< Updated upstream
 	@Autowired
 	private GoodsService goodsService;
+=======
+>>>>>>> Stashed changes
 	
 	@Resource(name ="loginAdminBean")
 	private AdminBean loginAdminBean;
@@ -46,9 +49,12 @@ public class AdminController {
 	
 	@GetMapping("/main")
 	public String main() {
+		
+
 		return "admin/main";
 	}
 	
+<<<<<<< Updated upstream
 	@GetMapping("/goodsreg")
 	public String goodsreg(@ModelAttribute("goodsRegBean") GoodsBean goodsRegBean) {
 		
@@ -70,5 +76,8 @@ public class AdminController {
 		return "admin/goodslist";
 	}
 	
+=======
+
+>>>>>>> Stashed changes
 	
 }

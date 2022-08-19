@@ -9,7 +9,14 @@
 <title>Admin Main</title>
 </head>
 <body>
+<<<<<<< Updated upstream
 	<a href='${root }admin/goodslist'>상품 목록</a>
 	<a href='${root }admin/goodsreg'>상품 등록</a>
+=======
+	<a href='${root }goods/goods_list'>상품 목록</a>
+	<a href='${root }goods/goods_reg'>상품 등록</a>
+	<a href='${root }'>홈으로</a>
+	
+>>>>>>> Stashed changes
 </body>
 </html>

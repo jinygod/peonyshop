@@ -20,7 +20,11 @@ public class UserValidator implements Validator{
 
 		String beanName = errors.getObjectName();
 
+<<<<<<< Updated upstream
 		if (beanName.equals("joinUesrBean") || beanName.equals("modifyUserBean")) {
+=======
+		if (beanName.equals("joinUserBean") || beanName.equals("modifyUserBean")) {
+>>>>>>> Stashed changes
 			if (userBean.getUser_pw().equals(userBean.getUser_pw2()) == false) {
 				errors.rejectValue("user_pw", "NotEquals");
 				errors.rejectValue("user_pw2", "NotEquals");

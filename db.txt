@@ -37,18 +37,28 @@ create sequence notice_seq
 start with 1
 increment by 1
 minvalue 1;
+<<<<<<< Updated upstream
 
 Create table topmenu_table(
     topmenu_idx number constraint TOPMENU_PK primary key,
     topmenu_name varchar2(20) not null
 );
 
+=======
+
+Create table topmenu_table(
+    topmenu_idx number constraint TOPMENU_PK primary key,
+    topmenu_name varchar2(20) not null
+);
+
+>>>>>>> Stashed changes
 Insert into topmenu_table values (1, 'top'); 
 Insert into topmenu_table values (2, 'bottom'); 
 Insert into topmenu_table values (3, 'dress'); 
 Insert into topmenu_table values (4, 'shoes'); 
 Insert into topmenu_table values (5, 'accessory');
 Insert into topmenu_table values (6, 'notice'); 
+<<<<<<< Updated upstream
 
 CREATE TABLE goods_table(
     goods_no number constraint GOODS_PK primary key,
@@ -67,4 +77,31 @@ create sequence goods_seq
 start with 1
 increment by 1
 minvalue 1;
+=======
+
+CREATE TABLE goods_table(
+    goods_idx number constraint GOODS_PK primary key,
+    goods_category varchar2(100),
+    goods_name varchar2(100),
+    goods_content varchar2(4000),
+    goods_sell_price number,
+    goods_keyword varchar2(100),
+    goods_readcnt number,
+    goods_pick varchar2(100),
+    goods_thumbnail varchar2(1000),
+    goods_gubun varchar2(1)
+    );
+    
+create sequence goods_seq
+start with 1
+increment by 1
+minvalue 1;
+
+CREATE TABLE basket_table(
+    basket_idx number constraint BASKET_PK primary key
+    , user_idx number, goods_idx number, basket_goods_amount number,
+CONSTRAINT basket_user_fk foreign key (user_idx) references user_table (user_idx)
+	);
+
+>>>>>>> Stashed changes
 commit;

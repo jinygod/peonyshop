@@ -63,4 +63,14 @@ public class UserService {
 		modifyUserBean.setUser_addr2(tempModifyUserBean.getUser_addr2());
 		
 	}
+<<<<<<< Updated upstream
+=======
+	
+	public void modifyUserInfo(UserBean modifyUserBean) {
+		
+		modifyUserBean.setUser_idx(loginUserBean.getUser_idx());
+		
+		userDao.modifyUserInfo(modifyUserBean);
+	}
+>>>>>>> Stashed changes
 }

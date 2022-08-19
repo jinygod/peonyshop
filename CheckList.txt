@@ -1,6 +1,7 @@
 @SelectKey(statement = "select notice_seq.nextval from dual", keyProperty = "notice_idx", before = true, resultType = int.class) 가 뭘까?
 NoticeMapper에 있음
 ==> 
+<<<<<<< Updated upstream
 
 
 
@@ -15,20 +16,40 @@ Q&A
 카테고리
 관리자 페이지
 
+=======
 
-상품리스트
-상품 상세 페이지
-장바구니
 
+
+<할 일>
+
+((((유저 페이지))))
+상품상세페이지
+- 상품상세페이지 내 Q&A 
+- 상품상세페이지 내 리뷰
+- 상품상세페이지 내 상품갯수 + 상품가격 실시간 변화
+- 상품상세페이지 내 구매버튼, 장바구니버튼
+장바구니 페이지
+구매 페이지
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
 상품 구매 과정
 상품 등록 과정(관리자 페이지) -중
+=======
+((((관리자페이지))))
+>>>>>>> Stashed changes
 정산
 상품수정, 삭제
-
+NOTICE 수정
 *회원관리
 *교환/반품
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 <오류>
 로그인 성공 -> 주소창에 강제로 user/login으로 이동 -> 다시 로그인할 때 틀린 비밀번호 입력 -> 로그인 성공되는 오류 발생
 peony/main 에서 주소창에 admin/main 입력하면 관리자 코드 없이도 들어올 수 있음 -> 인터셉터로 막아야 하나?(SJ)
@@ -37,3 +58,12 @@ peony/main 에서 주소창에 admin/main 입력하면 관리자 코드 없이�
  
 <해결>
 로그인상태에 따른 화면 구성(로그인, 회원가입 / 마이페이지, 정보수정, 로그아웃)
+<<<<<<< Updated upstream
+=======
+상품 등록 과정, 사진포함(관리자 페이지)
+로그인 유효성검사
+비밀번호/비밀번호 확인
+로그아웃 기능
+정보수정 기능
+카테고리
+>>>>>>> Stashed changes

@@ -23,6 +23,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+<<<<<<< Updated upstream
+=======
+	
+>>>>>>> Stashed changes
 
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -82,7 +86,11 @@ public class UserController {
 			return "user/modify";
 		}
 		
+<<<<<<< Updated upstream
 	//	userService.modifyUserInfo(modifyUserBean);
+=======
+		userService.modifyUserInfo(modifyUserBean);
+>>>>>>> Stashed changes
 		
 		return "user/modify_success";
 	}
@@ -102,6 +110,10 @@ public class UserController {
 		
 	}
 	
+<<<<<<< Updated upstream
+=======
+	// pw=pw2 검사 , 어노테이션으로 쓸수 없는 유효성검사를 할떄 validator 클래스를 만들고 호출함
+>>>>>>> Stashed changes
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		UserValidator validator1 = new UserValidator();

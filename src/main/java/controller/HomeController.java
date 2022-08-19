@@ -19,7 +19,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest request) {
 		
+<<<<<<< Updated upstream
 	//	System.out.println(request.getServletContext().getRealPath("/"));
+=======
+		System.out.println(request.getServletContext().getRealPath("/"));
+>>>>>>> Stashed changes
 		
 		return "redirect:/main";
 	}
