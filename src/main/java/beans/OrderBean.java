@@ -8,7 +8,9 @@ public class OrderBean {
 	private String order_cnt;
 	private String order_tot;
 	private String goods_idx;
-	
+	private String goods_sell_price;
+	private String cnt;
+	private String amt;
 	
 	private String user_idx;
 	private String user_name;
@@ -115,6 +117,24 @@ public class OrderBean {
 	}
 	public void setGoods_idx(String goods_idx) {
 		this.goods_idx = goods_idx;
+	}
+	public String getGoods_sell_price() {
+		return goods_sell_price;
+	}
+	public void setGoods_sell_price(String goods_sell_price) {
+		this.goods_sell_price = goods_sell_price;
+	}
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
+	public String getAmt() {
+		return amt;
+	}
+	public void setAmt(String amt) {
+		this.amt = amt;
 	}
 	
 	

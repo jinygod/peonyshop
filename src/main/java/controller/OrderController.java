@@ -2,12 +2,10 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import beans.GoodsBean;
 import beans.OrderBean;
 import service.OrderService;
 
@@ -20,8 +18,7 @@ public class OrderController {
 	
 	
 	@PostMapping("/order_pro") 
-	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
-							 Model model) {
+	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean) {
 		
 		orderService.addOrderInfo(orderInfoBean);
 		
