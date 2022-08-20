@@ -12,7 +12,8 @@ public class OrderService {
 	@Autowired
 	private OrderDao orderDao;
 	
-	public OrderBean addOrderInfo(OrderBean orderInfoBean) {
-		return orderDao.addOrderInfo(orderInfoBean);
+	public void addOrderInfo(OrderBean orderInfoBean) {
+		
+		orderDao.addOrderInfo(orderInfoBean);
 	}
 }

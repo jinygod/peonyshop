@@ -13,8 +13,8 @@ public class OrderDao {
 	@Autowired
 	private OrderMapper orderMapper;
 	
-	public OrderBean addOrderInfo(OrderBean orderInfoBean) {
-		return orderMapper.addOrderInfo(orderInfoBean);
+	public void addOrderInfo(OrderBean orderInfoBean) {
+		 orderMapper.addOrderInfo(orderInfoBean);
 	}
 	
 }
