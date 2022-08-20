@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import beans.GoodsBean;
 import beans.OrderBean;
-import beans.UserBean;
 import service.OrderService;
 
 @Controller
@@ -19,21 +18,15 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
-	@Autowired
-	private UserBean loginUserBean;
 	
 	@PostMapping("/order_pro") 
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
-			GoodsBean getGoodsDetail, Model model) {
+							 Model model) {
 		
-
-		OrderBean orderInfo = orderService.addOrderInfo(orderInfoBean);
+		orderService.addOrderInfo(orderInfoBean);
 		
-		model.addAttribute("orderInfo", orderInfo);
+		System.out.println(orderInfoBean.getGoods_idx());
 		
-		//System.out.println(orderInfo.getGoods_idx().getClass().getName());
-		System.out.println(loginUserBean.getUser_idx());
-		System.out.println(orderInfo.getGoods_idx());
 		return "order/main";
 	}
 	

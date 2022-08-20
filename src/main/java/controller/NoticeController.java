@@ -90,14 +90,15 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/modify_pro")
-	public String modify_pro(@Valid @ModelAttribute("modifyNoticeBean") NoticeBean moidfyNoticeBean, BindingResult result ) {
+	public String modify_pro(@Valid @ModelAttribute("modifyNoticeBean") NoticeBean moidfyNoticeBean, 
+							 @RequestParam("notice_idx") String notice_idx, BindingResult result , Model model) {
 		
 		if(result.hasErrors()) {
 			return "notice/modify";
 		}
 		
 		noticeService.modifyNoticeInfo(moidfyNoticeBean);
-		
+		model.addAttribute("notice_idx", notice_idx);
 		return "notice/modify_success";
 	}
 }

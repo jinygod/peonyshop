@@ -9,8 +9,7 @@
 <title>Admin Main</title>
 </head>
 <body>
-	<a href='${root }goods/goods_list'>상품 목록</a>
-	<a href='${root }goods/goods_reg'>상품 등록</a>
+	<a href='${root }goods/goods_list'>상품 관리</a>
 	<a href='${root }'>홈으로</a>
 	<a href='${root }notice/main'>공지사항</a>
 	

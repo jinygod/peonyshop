@@ -13,6 +13,7 @@
 	<div>
 	<form:form action='${root }notice/modify_pro' method='post'
 		modelAttribute="modifyNoticeBean">
+		<form:hidden path = "notice_idx"/>
 		<form:label path="notice_writer">작성자</form:label>
 		<form:input path="notice_writer" value = "${noticeInfo.notice_writer }" readonly="true" />
 		<br />
