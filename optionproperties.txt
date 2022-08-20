@@ -1,0 +1,2 @@
+jes : path.upload = C:/jes/workspace/PeonyShop/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/peonyshop/resources/upload
+

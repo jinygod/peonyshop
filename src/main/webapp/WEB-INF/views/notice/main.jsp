@@ -25,7 +25,6 @@
 <title>Insert title here</title>
 </head>
 <body align = center>
-<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 	<h1>공지사항</h1>
 	<table align = center>
 		<tr>

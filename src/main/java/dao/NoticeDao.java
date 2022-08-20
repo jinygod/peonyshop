@@ -22,8 +22,16 @@ public class NoticeDao {
 		return noticeMapper.getNoticeList(noticeBean);
 	}
 	
-	public NoticeBean getReadNotice(int notice_idx) {
+	public NoticeBean getReadNotice(String notice_idx) {
 		return noticeMapper.getReadNotice(notice_idx);
+	}
+	
+	public NoticeBean getModifyNoticeInfo(String notice_idx) {
+		return noticeMapper.getModifyNoticeInfo(notice_idx);
+	}
+	
+	public void modifyNoticeInfo(NoticeBean moidfyNoticeBean) {
+		noticeMapper.modifyNoticeInfo(moidfyNoticeBean);
 	}
 	
 	public void deleteNotice(NoticeBean deleteNoticeBean) {

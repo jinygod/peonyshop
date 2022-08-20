@@ -29,6 +29,7 @@ import mapper.AdminMapper;
 import mapper.BasketMapper;
 import mapper.GoodsMapper;
 import mapper.NoticeMapper;
+import mapper.OrderMapper;
 import mapper.TopMenuMapper;
 import mapper.UserMapper;
 import service.TopMenuService;
@@ -141,6 +142,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 		@Bean
 		public MapperFactoryBean<BasketMapper> getBasketMapper(SqlSessionFactory factory) throws Exception{
 			MapperFactoryBean<BasketMapper> factoryBean = new MapperFactoryBean<BasketMapper>(BasketMapper.class);
+			factoryBean.setSqlSessionFactory(factory);
+			return factoryBean;
+		}
+		
+		@Bean
+		public MapperFactoryBean<OrderMapper> getOrderMapper(SqlSessionFactory factory) throws Exception{
+			MapperFactoryBean<OrderMapper> factoryBean = new MapperFactoryBean<OrderMapper>(OrderMapper.class);
 			factoryBean.setSqlSessionFactory(factory);
 			return factoryBean;
 		}
