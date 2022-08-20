@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url('footer.css');
+
+
+/* 기타 요소들 초기 설정*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block ; }
+body {line-height : 1;}
+blockquote, q {quotes : none; }
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; }
+/* align, border, input */
+img, fieldset, a {border:none;}
+blockquote:before, blockquoe:after, q:before, q:after {content: ''; content: none;}
+/* align, border, input */
+img, fieldset, a {border: none; }
+img { vertical-align: middle; }
+table, thead, tbody, tfoot {border-collapse: collapse; border-spacing: 0; border: 0 none; }
+ul, ol, li { list-style: none; }
+address, em { font-style : normal ; }
+input, select, textarea, button, form img, label {vertical-align : middile; }
+
+.hdd, legend {font-size: 0; width: 0; height:0; line-height:0; text-indent:-9999px;
+    overflow: hidden; visibility:hidden; position:absolute; top: 0; left:0; }
+    caption {font-size:0; width:0; height:0; line-height: 0; text-indent: -9999px; overflow: hidden;}
+    
+
+
+.quick_area {position:fixed; top: 171px; right: 0; width: 94px; z-index:100; }
+.quick_area .quick_list {}
+.quick_area .quick_list li {text-align: center; background: #282828; font-size: 15px; }
+.quick_area .quick_list li a {display:block; padding: 15px 0; border-top: 1px solid #4d4d4d; }
+.quick_area .quick_list li:first-child a{border-top:none;}
+.quick_area .quick_list li a h3 {padding-bottom: 10px; color:#ddd; letter-spacing:-2px;}
+.quick_area .quick_area li:last-child a h3 {padding-bottom: 0;}
+.quick_area .quick_list li a h2 em {display:none;}
+.quick_area .quick_list li a  p {line-height: 1.3; font-size: 12px; color:#fff;}
+.to_top {text-align: center; background:#fff;}
+.to_top a{display:block; height: 45px; box-sizing: border-box; text-indent: -9999px;
+        overflow:hidden; border-left: 1px solid #a3a3a3; border-bottom: 1px solid #a3a3a3;
+        background:url(../img/ico_totop.png) no-repeat center; background-size:50%;}
