@@ -46,6 +46,7 @@ public class GoodsController {
 		model.addAttribute("goodsDetail", goodsDetail);
 
 		model.addAttribute("user_idx", loginUserBean.getUser_idx());
+		
 
 		return "goods/goods_detail";
 	}

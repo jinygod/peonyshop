@@ -16,7 +16,6 @@
 		</c:otherwise>
 	</c:choose>
 	<a href='${root }admin/login'>관리자페이지</a>
-	<a href='${root }notice/main'>공지사항</a>
 	</div>
 	<a href = '${root }'>
 	<h1 align = 'center'>PEONY SHOP</h1></a>

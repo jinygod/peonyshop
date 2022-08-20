@@ -7,6 +7,8 @@ public class OrderBean {
 	private String order_price;
 	private String order_cnt;
 	private String order_tot;
+	private String goods_idx;
+	
 	
 	private String user_idx;
 	private String user_name;
@@ -107,6 +109,12 @@ public class OrderBean {
 	}
 	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
+	}
+	public String getGoods_idx() {
+		return goods_idx;
+	}
+	public void setGoods_idx(String goods_idx) {
+		this.goods_idx = goods_idx;
 	}
 	
 	

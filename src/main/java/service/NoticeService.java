@@ -22,8 +22,16 @@ public class NoticeService {
 		return noticeDao.getNoticeList(noticeBean);
 	}
 	
-	public NoticeBean getReadNotice(int notice_idx) {
+	public NoticeBean getReadNotice(String notice_idx) {
 		return noticeDao.getReadNotice(notice_idx);
+	}
+	
+	public 	NoticeBean getModifyNoticeInfo(String notice_idx) {
+		return noticeDao.getModifyNoticeInfo(notice_idx);
+	}
+	
+	public void modifyNoticeInfo(NoticeBean moidfyNoticeBean) {
+		noticeDao.modifyNoticeInfo(moidfyNoticeBean);
 	}
 	
 	public void deleteNotice(NoticeBean deleteNoticeBean) {

@@ -46,8 +46,14 @@
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 </head>
 <body>
-	<form:form action='${root }order/order_pro' method='post' modelAttribute="orderInfoBean" id = "frm" name = "frm">
-<%-- 	<form:hidden path='${loginUserBean.user_idx }'/> --%>
+	<form:form action='${root }order/order_pro' method='post' modelAttribute="orderInfoBean" >
+	<input type='hidden' name='${loginUserBean.user_idx }'/>
+	<input type='hidden' name='${loginUserBean.user_name }'/>
+	<input type='hidden' name='${loginUserBean.user_phone }'/>
+	<input type='hidden' name='${loginUserBean.user_zipcode }'/>
+	<input type='hidden' name='${loginUserBean.user_addr1 }'/>
+	<input type='hidden' name='${loginUserBean.user_addr2 }'/>
+	<input type='hidden' name='${goodsDetail.goods_idx }'/>
 	<img src="${root }upload/${goodsDetail.goods_thumbnail}" width=300px, height=400px/><br/>
 	<h1>상품명: ${goodsDetail.goods_name}</h1><br/>
 	가격 : <input type='text' id="price" value='${goodsDetail.goods_sell_price}' readonly/><br/>
@@ -55,10 +61,12 @@
 	총 가격 : <input type='text' id="amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
-	<form:button>주문하기</form:button>
+	<button>주문하기</button>
 	<input type = "button"  onClick = "basket()" value = "장바구니">
 
 	</form:form>
 
-</body>
+
+	<%-- 		"#{user_idx}, #{user_name}, #{user_phone}, #{user_zipcode}, #{user_addr1}, #{user_addr2}, #{order_date})")
+ --%></body>
 </html>

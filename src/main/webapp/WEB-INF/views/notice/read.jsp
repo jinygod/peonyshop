@@ -29,7 +29,7 @@
 			rows="10" style="resize: none" disabled="disabled">${readNotice.notice_content }</textarea>
 			
 		<a href= '${root }notice/main'>목록</a>	
-		<a href= '${root }notice/modify'>수정</a>
+		<a href= '${root }notice/modify?notice_idx=${notice_idx}'>수정</a>
 		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>	
 
 </body>
