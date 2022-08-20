@@ -44,7 +44,7 @@ public class GoodsController {
 		
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
-
+		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("user_idx", loginUserBean.getUser_idx());
 		
 
@@ -69,8 +69,11 @@ public class GoodsController {
 	}
 	
 	@GetMapping("/goods_list")
-	public String goods_list() {
+	public String goods_list(Model model) {
 		
+		List<GoodsBean> adminGoodsList = goodsService.getAdminGoodsList();
+		
+		model.addAttribute("adminGoodsList", adminGoodsList);
 		return "goods/goods_list";
 	}
 	
@@ -96,6 +99,34 @@ public class GoodsController {
 		model.addAttribute("user_idx", user_idx);
 		
 		return "goods/buy";
+	}
+	
+	@GetMapping("/modify")
+	public String modify(@ModelAttribute("modifyGoodsBean") GoodsBean modifyGoodsBean,
+						@RequestParam("goods_idx") String goods_idx, Model model) {
+		
+		GoodsBean goodsInfo = goodsService.getModifyGoodsInfo(goods_idx);
+		
+		model.addAttribute("goodsInfo", goodsInfo);
+		model.addAttribute("goods_idx", goods_idx);
+		
+		return "goods/modify";
+	}
+	
+	@PostMapping("/modify_pro")
+	public String modify_pro(@ModelAttribute("modifyGoodsBean") GoodsBean modifyGoodsBean) {
+		
+		return "goods/modify_success";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("goods_idx") String goods_idx, Model model) {
+		
+		goodsService.deleteGoods(goods_idx);
+		
+		model.addAttribute("goods_idx", goods_idx);
+		
+		return "goods/delete";
 	}
 	
 }

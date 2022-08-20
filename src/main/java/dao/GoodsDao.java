@@ -25,4 +25,16 @@ public class GoodsDao {
 	public GoodsBean getGoodsDetail(String goods_idx) {
 		return goodsMapper.getGoodsDetail(goods_idx);
 	}
+	
+	public List<GoodsBean> getAdminGoodsList(){
+		return goodsMapper.getAdminGoodsList();
+	}
+	
+	public GoodsBean getModifyGoodsInfo(String goods_idx) {
+		return goodsMapper.getModifyGoodsInfo(goods_idx);
+	}
+	
+	public void deleteGoods(String goods_idx) {
+		goodsMapper.deleteGoods(goods_idx);
+	}
 }

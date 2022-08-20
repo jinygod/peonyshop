@@ -29,7 +29,7 @@ public class GoodsService {
 	private UserBean loginUserBean;
 	
 	
-	// 중복된 파일이 들어오면 덮어씌워지게함 (업로드되는 파일이름을 구함)
+	// 중복된 파일이 들어오면 덮어씌워지지 않게함 (등록시간으로 구분가능하게 함)
 	private String saveUploadFile(MultipartFile upload_thumbnail) {
 		
 		String goods_name = System.currentTimeMillis() + "_" + upload_thumbnail.getOriginalFilename();
@@ -63,5 +63,17 @@ public class GoodsService {
 		
 	public GoodsBean getGoodsDetail(String goods_idx) {
 		return goodsDao.getGoodsDetail(goods_idx);
+	}
+	
+	public List<GoodsBean> getAdminGoodsList(){
+		return goodsDao.getAdminGoodsList();
+	}
+	
+	public GoodsBean getModifyGoodsInfo(String goods_idx) {
+		return goodsDao.getModifyGoodsInfo(goods_idx);
+	}
+	
+	public void deleteGoods(String goods_idx) {
+		goodsDao.deleteGoods(goods_idx);
 	}
 }

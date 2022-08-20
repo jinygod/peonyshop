@@ -4,6 +4,6 @@
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 
 <script>
-	alert('글 수정이 완료되었습니다')
-	location.href = '${root}notice/read?notice_idx=${notice_idx}'
+	alert('상품페이지 수정이 완료되었습니다')
+	location.href = '${root}goods/goods_detail?goods_idx=${goods_idx}'
 </script>
