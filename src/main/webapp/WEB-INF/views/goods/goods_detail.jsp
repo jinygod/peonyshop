@@ -50,16 +50,19 @@
 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
 	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
 	<input type='hidden' name = "user_phone" value='${loginUserBean.user_phone }' />
+	<input type='hidden' name = "user_email" value='${loginUserBean.user_email }' />
+	<input type='hidden' name = "user_birth" value='${loginUserBean.user_birth }' />
 	<input type='hidden' name = "user_zipcode" value='${loginUserBean.user_zipcode }'/>
 	<input type='hidden' name = "user_addr1" value='${loginUserBean.user_addr1 }'/>
 	<input type='hidden' name = "user_addr2" value='${loginUserBean.user_addr2 }'/>
 	<input type='hidden' name = "goods_idx" value='${goodsDetail.goods_idx }' />
 	<input type='hidden' name = "goods_name" value='${goodsDetail.goods_name }' />
-	<img src="${root }upload/${goodsDetail.goods_thumbnail}" width=300px, height=400px/><br/>
+	<input type='hidden' name = "goods_thumbnail" value='${goodsDetail.goods_thumbnail }' />
+	<img src="${root }upload/${goodsDetail.goods_thumbnail}"  width=300px, height=400px/><br/>
 	<h1>상품명: ${goodsDetail.goods_name}</h1><br/>
 	가격 : <input type='text' id="price" name = "goods_sell_price" value='${goodsDetail.goods_sell_price}' readonly/><br/>
-	수량 : <input type='number' id='cnt' name='cnt' value='1' min='1' max='10' onClick="totalAmt()"><br/>
-	총 가격 : <input type='text' id="amt" name = "amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
+	수량 : <input type='number' id='cnt' name='order_cnt' value='1' min='1' max='10' onClick="totalAmt()"><br/>
+	총 가격 : <input type='text' id="amt" name = "order_amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
 	<button>주문하기</button>

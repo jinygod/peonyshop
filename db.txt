@@ -89,6 +89,7 @@ create table order_table (
 order_idx number constraint ORDER_PK primary key,
 goods_idx number,
 goods_name	varchar2(20),
+user_email varchar2(30),
 order_price	number,
 order_cnt	number,
 order_tot	number,
