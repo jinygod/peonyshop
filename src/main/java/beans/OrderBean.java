@@ -6,15 +6,19 @@ public class OrderBean {
 	private String goods_name;
 	private String order_price;
 	private String order_cnt;
-	private String order_tot;
+	private String order_amt;
 	private String goods_idx;
 	private String goods_sell_price;
+	private String goods_thumbnail;
+	
 	private String cnt;
 	private String amt;
 	
 	private String user_idx;
 	private String user_name;
 	private String user_phone;
+	private String user_email;
+	private String user_birth;
 	private String user_zipcode;
 	private String user_addr1;
 	private String user_addr2;
@@ -52,11 +56,12 @@ public class OrderBean {
 	public void setOrder_cnt(String order_cnt) {
 		this.order_cnt = order_cnt;
 	}
-	public String getOrder_tot() {
-		return order_tot;
+	
+	public String getOrder_amt() {
+		return order_amt;
 	}
-	public void setOrder_tot(String order_tot) {
-		this.order_tot = order_tot;
+	public void setOrder_amt(String order_amt) {
+		this.order_amt = order_amt;
 	}
 	public String getUser_idx() {
 		return user_idx;
@@ -75,6 +80,18 @@ public class OrderBean {
 	}
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
+	}
+	public String getUser_birth() {
+		return user_birth;
+	}
+	public void setUser_birth(String user_birth) {
+		this.user_birth = user_birth;
+	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
 	public String getUser_zipcode() {
 		return user_zipcode;
@@ -123,6 +140,13 @@ public class OrderBean {
 	}
 	public void setGoods_sell_price(String goods_sell_price) {
 		this.goods_sell_price = goods_sell_price;
+	}
+	
+	public String getGoods_thumbnail() {
+		return goods_thumbnail;
+	}
+	public void setGoods_thumbnail(String goods_thumbnail) {
+		this.goods_thumbnail = goods_thumbnail;
 	}
 	public String getCnt() {
 		return cnt;

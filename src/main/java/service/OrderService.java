@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,18 @@ public class OrderService {
 	public void addOrderInfo(OrderBean orderInfoBean) {
 		
 		orderDao.addOrderInfo(orderInfoBean);
+	}
+	
+	public List<OrderBean> getOrderInfo(OrderBean orderInfoBean){
+		
+		return orderDao.getOrderInfo(orderInfoBean);
+	}
+	
+	public OrderBean getUserInfo(OrderBean orderInfoBean) {
+		return orderDao.getUserInfo(orderInfoBean);
+		
+	}
+	public List<OrderBean> addPayInfo(OrderBean payInfoBean) {
+		return orderDao.addPayInfo(payInfoBean);
 	}
 }
