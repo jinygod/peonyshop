@@ -8,11 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.OrderBean;
-import beans.UserBean;
 import service.OrderService;
-import service.UserService;
 
 @Controller
 @RequestMapping("/order")
@@ -24,20 +23,29 @@ public class OrderController {
 	
 	@PostMapping("/order_pro") 
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+							@RequestParam("order_basket") String order_basket, 
+							@RequestParam("topmenu_name") String topmenu_name,
 							OrderBean payInfoBean,
 							 Model model) {
 		
 		orderService.addOrderInfo(orderInfoBean);
 		OrderBean userInfo = orderService.getUserInfo(orderInfoBean);
 		List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
+		
+		model.addAttribute("topmenu_name", topmenu_name);
 		model.addAttribute("userInfo",userInfo);
 		model.addAttribute("orderList", orderList);
 		model.addAttribute("orderInfoBean",orderInfoBean);
+		
+		if(order_basket.equals("장바구니")) {
+			return "redirect:/goods/goods_detail";
+		}else {
 //		System.out.println(orderInfoBean.getGoods_idx());
 //		System.out.println(orderInfoBean.getOrder_idx());
 //		System.out.println(orderInfoBean.getGoods_name());
 		
 		return "order/main";
+		}
 	}
 	
 	@PostMapping("/pay_pro")

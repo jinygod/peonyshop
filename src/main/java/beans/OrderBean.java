@@ -26,6 +26,7 @@ public class OrderBean {
 	private String order_pay_bank;
 	private String order_date;
 	
+	private String topmenu_name;
 	
 	
 	/*
@@ -159,6 +160,12 @@ public class OrderBean {
 	}
 	public void setAmt(String amt) {
 		this.amt = amt;
+	}
+	public String getTopmenu_name() {
+		return topmenu_name;
+	}
+	public void setTopmenu_name(String topmenu_name) {
+		this.topmenu_name = topmenu_name;
 	}
 	
 	

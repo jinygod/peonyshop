@@ -19,9 +19,9 @@ public interface OrderMapper {
 			"#{user_idx}, #{user_name}, #{user_phone}, #{user_email}, #{user_birth}, #{user_zipcode}, #{user_addr1}, #{user_addr2}, sysdate)")
 	void addOrderInfo(OrderBean orderInfoBean);
 	
-	@Select("select o.order_idx, g.goods_thumbnail, g.goods_name, g.goods_sell_price, o.order_cnt, o.order_amt "
-			+ "from order_table o, goods_table g "
-			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx}")
+	@Select("select o.order_idx, g.goods_idx,  g.goods_thumbnail, g.goods_name, g.goods_sell_price, o.order_cnt, o.order_amt "
+			+ "from order_table o, goods_table g , topmenu_table t "
+			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx} and t.topmenu_name=#{topmenu_name}" )
 	List<OrderBean> getOrderInfo(OrderBean orderInfoBean);
 	
 	@Select("select u.user_idx, u.user_name, u.user_phone, u.user_birth, u.user_email, u.user_zipcode, u.user_addr1, u.user_addr2, o.order_pay_option "
@@ -32,7 +32,7 @@ public interface OrderMapper {
 	@Select("select o.order_idx, g.goods_thumbnail, g.goods_name, g.goods_sell_price, o.order_cnt, o.order_amt, o.order_pay_option, "
 			+ "    u.user_name, u.user_email, u.user_phone, u.user_zipcode, u.user_addr1, u.user_addr2 "
 			+ "from order_table o, user_table u, goods_table g "
-			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx} and u.user_idx = #{user_idx}")
+			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx} and u.user_idx = #{user_idx}" )
 	List<OrderBean> addPayInfo(OrderBean payInfoBean);
 	
 	
