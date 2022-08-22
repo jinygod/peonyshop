@@ -24,7 +24,7 @@ public class OrderController {
 	
 	@PostMapping("/order_pro") 
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
-							UserBean loginUserBean, OrderBean payInfoBean,
+							OrderBean payInfoBean,
 							 Model model) {
 		
 		orderService.addOrderInfo(orderInfoBean);

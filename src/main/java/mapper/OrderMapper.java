@@ -32,7 +32,7 @@ public interface OrderMapper {
 	@Select("select o.order_idx, g.goods_thumbnail, g.goods_name, g.goods_sell_price, o.order_cnt, o.order_amt, o.order_pay_option, "
 			+ "    u.user_name, u.user_email, u.user_phone, u.user_zipcode, u.user_addr1, u.user_addr2 "
 			+ "from order_table o, user_table u, goods_table g "
-			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx}")
+			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx} and u.user_idx = #{user_idx}")
 	List<OrderBean> addPayInfo(OrderBean payInfoBean);
 	
 	
