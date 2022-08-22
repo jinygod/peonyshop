@@ -3,17 +3,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
+<%-- <c:set var='login' value="${loginUserBean }" scope="page" /> --%>
 
 <!DOCTYPE html>
 
 <html>
 <head>
 
+<c:choose>
+	<c:when test="loginUserBean.isUserLogin() == false">
+	  <script>
+	    window.onload=function(){
+	      alert("아이디나 비밀번호가 틀립니다.다시 로그인 하세요!");
+	    }
+	  </script>
+	</c:when>
+	<c:otherwise>
+	
+	</c:otherwise>
+</c:choose>  
+
 
 <script>
 
+	
+
 	// 장바구니 버튼 클릭 (url에 파라미터값 받기)
-	function basket(){
+	/* function basket(){
 		
 			var url = "/peonyshop/basket/main";
 
@@ -28,6 +44,33 @@
 		//	alert(url);
 			location.href = url;
 			
+	} */
+/* 	
+	function addBasket(){
+		
+		var logined = "${loginUserBean.isUserLogin()}";
+		
+		//alert(xlogin.user_name);
+	
+		// var userLogin = $("#loginUserBean.isUserLogin()").val()		
+		if(logined != undefined && logined != null && logined == true) {
+			alert('장바구니에 추가되었습니다');
+		}
+		else {
+			alert('로그인을 해주세요');
+			location.href = '${root}user/login';
+			return;
+		}
+	  */
+		
+		/* if(userLogin == false) {
+			alert('로그인을 해주세요');
+			location.href = '${root}user/login';
+			return;
+		} else {
+			alert('장바구니에 추가되었습니다');
+		} */
+		
 	}
 	
 	// tot 값 셋팅
@@ -46,6 +89,8 @@
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 </head>
 <body>
+	<h3>이름:${loginUserBean.user_name}</h3>
+
 	<form:form action='${root }order/order_pro' method='post' modelAttribute="orderInfoBean" >
 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
 	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
@@ -67,7 +112,7 @@
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
 	<button name = order_basket>주문하기</button>
-	<input type = "submit"  name = order_basket onClick = "basket()" value = "장바구니">
+	<input type = "submit"  name = order_basket onClick = "addBasket()" value = "장바구니">
 
 	</form:form>
 

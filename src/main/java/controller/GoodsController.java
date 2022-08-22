@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class GoodsController {
 	
 	@Autowired
 	private GoodsService goodsService;
+	
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
 
 	@GetMapping("/main")
 	public String main(@RequestParam("topmenu_name") String topmenu_name,  Model model,
@@ -46,6 +51,14 @@ public class GoodsController {
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("user_idx", loginUserBean.getUser_idx());
 		model.addAttribute("topmenu_name", topmenu_name);
+		
+		model.addAttribute("loginUserBean", loginUserBean);
+		
+		loginUserBean.setUserLogin(false);
+		loginUserBean.setUser_name("홍길동");
+		 
+		System.out.println("@@@name:" + loginUserBean.getUser_name());
+		
 
 		return "goods/goods_detail";
 	}
