@@ -25,7 +25,7 @@
 			url += "&cnt=" + cnt;
 			url += "&amt=" + amt;
 			
-			alert(url);
+		//	alert(url);
 			location.href = url;
 			
 	}
@@ -58,6 +58,7 @@
 	<input type='hidden' name = "goods_idx" value='${goodsDetail.goods_idx }' />
 	<input type='hidden' name = "goods_name" value='${goodsDetail.goods_name }' />
 	<input type='hidden' name = "goods_thumbnail" value='${goodsDetail.goods_thumbnail }' />
+	<input type='hidden' name = "topmenu_name" value='${topmenu_name}' />
 	<img src="${root }upload/${goodsDetail.goods_thumbnail}"  width=300px, height=400px/><br/>
 	<h1>상품명: ${goodsDetail.goods_name}</h1><br/>
 	가격 : <input type='text' id="price" name = "goods_sell_price" value='${goodsDetail.goods_sell_price}' readonly/><br/>
@@ -65,8 +66,8 @@
 	총 가격 : <input type='text' id="amt" name = "order_amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
-	<button>주문하기</button>
-	<input type = "button"  onClick = "basket()" value = "장바구니">
+	<button name = order_basket>주문하기</button>
+	<input type = "submit"  name = order_basket onClick = "basket()" value = "장바구니">
 
 	</form:form>
 
