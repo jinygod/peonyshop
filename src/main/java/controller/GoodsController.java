@@ -45,7 +45,7 @@ public class GoodsController {
 		model.addAttribute("goodsDetail", goodsDetail);
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("user_idx", loginUserBean.getUser_idx());
-		
+		model.addAttribute("topmenu_name", topmenu_name);
 
 		return "goods/goods_detail";
 	}
