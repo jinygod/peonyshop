@@ -31,5 +31,8 @@
 		${obj.goods_name } <br/>${obj.goods_sell_price } <br/> </a>
 	</c:forEach>
 </div>
+<footer>
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
+</footer>
 </body>
 </html>

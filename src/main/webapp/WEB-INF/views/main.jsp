@@ -17,6 +17,9 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
+<footer>
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
+</footer>
 
 <%-- 	<h1>PEONY SHOP</h1>
 	<c:choose>

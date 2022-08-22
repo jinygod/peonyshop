@@ -11,6 +11,7 @@ public class BasketBean {
 	private String goods_sell_price;
 	
 	private String basket_goods_cnt;
+	private String goods_amt;
 	
 	
 	public String getBakset_idx() {
@@ -55,7 +56,11 @@ public class BasketBean {
 	public void setGoods_sell_price(String goods_sell_price) {
 		this.goods_sell_price = goods_sell_price;
 	}
-	
-	
+	public String getGoods_amt() {
+		return goods_amt;
+	}
+	public void setGoods_amt(String goods_amt) {
+		this.goods_amt = goods_amt;
+	}
 	
 }

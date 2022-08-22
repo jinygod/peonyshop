@@ -15,12 +15,10 @@ public class OrderService {
 	private OrderDao orderDao;
 	
 	public void addOrderInfo(OrderBean orderInfoBean) {
-		
 		orderDao.addOrderInfo(orderInfoBean);
 	}
 	
 	public List<OrderBean> getOrderInfo(OrderBean orderInfoBean){
-		
 		return orderDao.getOrderInfo(orderInfoBean);
 	}
 	
