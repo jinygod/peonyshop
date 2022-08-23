@@ -35,6 +35,6 @@ public interface OrderMapper {
 			+ "where order_idx = #{order_idx} and g.goods_idx= #{goods_idx} and u.user_idx = #{user_idx}" )
 	List<OrderBean> addPayInfo(OrderBean payInfoBean);
 	
-	
+
 }
 	

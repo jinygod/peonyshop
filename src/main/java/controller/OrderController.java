@@ -27,44 +27,44 @@ public class OrderController {
 	
 	@Autowired
 	private BasketService basketService;
-	
+
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
-	
-	
-	@RequestMapping("/order_pro") 
+
+	@PostMapping("/order_pro")
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
 							@RequestParam("goods_idx") String goods_idx,
 							@RequestParam("order_basket") String order_basket, 
 							@RequestParam("topmenu_name") String topmenu_name,
 							OrderBean payInfoBean,
-							UserBean loginUserBean,
+							//UserBean loginUserBean,
 							 Model model) {
-		
-		orderService.addOrderInfo(orderInfoBean);
-		OrderBean userInfo = orderService.getUserInfo(orderInfoBean);
-		List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
-		
+
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("topmenu_name", topmenu_name);
-		model.addAttribute("userInfo",userInfo);
-		model.addAttribute("orderList", orderList);
-		model.addAttribute("orderInfoBean",orderInfoBean);
-		model.addAttribute("loginUserBean", loginUserBean);
-		
-		if(order_basket.equals("장바구니")) {
-			basketService.addBasketInfo(orderInfoBean);
+		model.addAttribute("orderInfoBean", orderInfoBean);
+		//model.addAttribute("loginUserBean", loginUserBean);
+		System.out.println(loginUserBean.isUserLogin());
+		if (loginUserBean.isUserLogin() == true) {
+
 			
-			return "redirect:/basket/basket_success";
-			
-			//return "redirect:/goods/goods_detail";
-		}else {
-//		System.out.println(orderInfoBean.getGoods_idx());
-//		System.out.println(orderInfoBean.getOrder_idx());
-//		System.out.println(orderInfoBean.getGoods_name());
-		
-		return "order/main";
+			if (order_basket.equals("장바구니")) {
+				basketService.addBasketInfo(orderInfoBean);
+				return "redirect:/basket/basket_success";
+
+			} else {
+				orderService.addOrderInfo(orderInfoBean);
+				OrderBean userInfo = orderService.getUserInfo(orderInfoBean);
+				List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
+				model.addAttribute("userInfo", userInfo);
+				model.addAttribute("orderList", orderList);
+				return "order/main";
+			}
+		} else {
+			return "user/not_login";
 		}
+
+		
 	}
 	
 	

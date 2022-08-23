@@ -10,7 +10,7 @@ public class MainController {
 
 	@GetMapping("/main")
 	public String main() {
-		System.out.println("[MainController] /main");
+//		System.out.println("[MainController] /main");
 		return "main";
 	}
 }

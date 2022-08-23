@@ -10,8 +10,10 @@ public class BasketBean {
 	private String goods_name;
 	private String goods_sell_price;
 	
+	private String goods_thumbnail;
+	private String order_cnt;
 	private String basket_goods_cnt;
-	private String goods_amt;
+	private String order_amt;
 	
 	
 	public String getBakset_idx() {
@@ -56,11 +58,23 @@ public class BasketBean {
 	public void setGoods_sell_price(String goods_sell_price) {
 		this.goods_sell_price = goods_sell_price;
 	}
-	public String getGoods_amt() {
-		return goods_amt;
+	public String getOrder_cnt() {
+		return order_cnt;
 	}
-	public void setGoods_amt(String goods_amt) {
-		this.goods_amt = goods_amt;
+	public void setOrder_cnt(String order_cnt) {
+		this.order_cnt = order_cnt;
+	}
+	public String getOrder_amt() {
+		return order_amt;
+	}
+	public void setOrder_amt(String order_amt) {
+		this.order_amt = order_amt;
+	}
+	public String getGoods_thumbnail() {
+		return goods_thumbnail;
+	}
+	public void setGoods_thumbnail(String goods_thumbnail) {
+		this.goods_thumbnail = goods_thumbnail;
 	}
 	
 }

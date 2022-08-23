@@ -28,8 +28,10 @@ public class GoodsController {
 	private UserBean loginUserBean;
 
 	@GetMapping("/main")
-	public String main(@RequestParam("topmenu_name") String topmenu_name,  Model model,
-			UserBean loginUserBean) {
+	public String main(@RequestParam("topmenu_name") String topmenu_name,
+					   Model model
+					//   UserBean loginUserBean
+					   ) {
 		
 		List<GoodsBean> goodsList = goodsService.getGoodsList(topmenu_name);
 		
@@ -43,23 +45,16 @@ public class GoodsController {
 	@GetMapping("/goods_detail")
 	public String goods_detail(@RequestParam("topmenu_name") String topmenu_name,
 								@RequestParam("goods_idx") String goods_idx,
-								GoodsBean getGoodsDetail, Model model,
-								UserBean loginUserBean)  {
+								GoodsBean getGoodsDetail, Model model
+							//	UserBean loginUserBean
+								)  {
 		
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("user_idx", loginUserBean.getUser_idx());
 		model.addAttribute("topmenu_name", topmenu_name);
-		
-		model.addAttribute("loginUserBean", loginUserBean);
-		
-		loginUserBean.setUserLogin(false);
-		loginUserBean.setUser_name("홍길동");
-		 
-		System.out.println("@@@name:" + loginUserBean.getUser_name());
-		
-
+		System.out.println("goodsdetail:" + loginUserBean.isUserLogin());
 		return "goods/goods_detail";
 	}
 	

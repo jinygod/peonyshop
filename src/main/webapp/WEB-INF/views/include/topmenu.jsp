@@ -8,7 +8,7 @@
 		<c:when test="${loginUserBean.userLogin == true}">
 			<a href='${root }user/modify'>정보수정</a>
 			<a href='${root }user/logout'>로그아웃</a>
-			<a href="${root }goods/basket?user_idx=${user_idx}">장바구니</a>
+			<a href="${root }basket/basket_list">장바구니</a>
 		</c:when>
 		<c:otherwise>
 			<a href='${root }user/login'>로그인</a>
