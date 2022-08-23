@@ -24,8 +24,6 @@ public class GoodsBean {
 
 	private String goods_gubun;
 	
-
-	
 	public String getGoods_idx() {
 		return goods_idx;
 	}

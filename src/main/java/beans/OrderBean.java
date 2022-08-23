@@ -5,10 +5,10 @@ public class OrderBean {
 	private String order_idx;
 	private String goods_name;
 	private String order_price;
-	private String order_cnt;
-	private String order_amt;
+	private int order_cnt;
+	private int order_amt;
 	private String goods_idx;
-	private String goods_sell_price;
+	private int goods_sell_price;
 	private String goods_thumbnail;
 	
 	private String cnt;
@@ -29,9 +29,11 @@ public class OrderBean {
 	private String topmenu_name;
 	
 	
-	/*
-	 * public OrderBean(int order_tot) { this.order_tot = order_price * order_cnt; }
-	 */
+	
+	 public OrderBean() {
+		 this.order_amt = goods_sell_price * order_cnt;
+		 }
+	
 	
 	public String getOrder_idx() {
 		return order_idx;
@@ -51,17 +53,17 @@ public class OrderBean {
 	public void setOrder_price(String order_price) {
 		this.order_price = order_price;
 	}
-	public String getOrder_cnt() {
+	public int getOrder_cnt() {
 		return order_cnt;
 	}
-	public void setOrder_cnt(String order_cnt) {
+	public void setOrder_cnt(int order_cnt) {
 		this.order_cnt = order_cnt;
 	}
 	
-	public String getOrder_amt() {
+	public int getOrder_amt() {
 		return order_amt;
 	}
-	public void setOrder_amt(String order_amt) {
+	public void setOrder_amt(int order_amt) {
 		this.order_amt = order_amt;
 	}
 	public String getUser_idx() {
@@ -136,10 +138,10 @@ public class OrderBean {
 	public void setGoods_idx(String goods_idx) {
 		this.goods_idx = goods_idx;
 	}
-	public String getGoods_sell_price() {
+	public int getGoods_sell_price() {
 		return goods_sell_price;
 	}
-	public void setGoods_sell_price(String goods_sell_price) {
+	public void setGoods_sell_price(int goods_sell_price) {
 		this.goods_sell_price = goods_sell_price;
 	}
 	

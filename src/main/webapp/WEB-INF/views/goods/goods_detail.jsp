@@ -10,19 +10,6 @@
 <html>
 <head>
 
-<c:choose>
-	<c:when test="loginUserBean.user_idx == null">
-	  <script>
-	    window.onload=function(){
-	      alert("아이디나 비밀번호가 틀립니다.다시 로그인 하세요!");
-	    }
-	  </script>
-	</c:when>
-	<c:otherwise>
-	
-	</c:otherwise>
-</c:choose>  
-
 
 <script>
 
@@ -46,40 +33,20 @@
 			
 	} */
 /* 	
-	function addBasket(){
-		
-		var logined = "${loginUserBean.isUserLogin()}";
-		
-		//alert(xlogin.user_name);
-	
-		// var userLogin = $("#loginUserBean.isUserLogin()").val()		
-		if(logined != undefined && logined != null && logined == true) {
-			alert('장바구니에 추가되었습니다');
-		}
-		else {
-			alert('로그인을 해주세요');
-			location.href = '${root}user/login';
-			return;
-		}
-	  */
-		
-		/* if(userLogin == false) {
-			alert('로그인을 해주세요');
-			location.href = '${root}user/login';
-			return;
-		} else {
-			alert('장바구니에 추가되었습니다');
-		} */
-		
-	}
-	
 	// tot 값 셋팅
 	function totalAmt() {
-		var price = document.getElementById('price').value;
+		/* var price = document.getElementById('price').value;
 		var cnt = document.getElementById('cnt').value;
 		var tot = price * cnt;
 		var amt = document.getElementById('amt');
+		amt.value = tot;  */
+	
+	function totalAmt() {
+		let price = document.querySelector('#price').value;
+		let cnt  = document.querySelector('#cnt').value;
+		var tot = price * cnt;
 		amt.value = tot;
+
 	}
 			
 </script>
@@ -89,8 +56,6 @@
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 </head>
 <body>
-	<h3>이름:${loginUserBean.user_name}</h3>
-
 	<form:form action='${root }order/order_pro' method='post' modelAttribute="orderInfoBean" >
 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
 	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
@@ -108,7 +73,7 @@
 	<h1>상품명: ${goodsDetail.goods_name}</h1><br/>
 	가격 : <input type='text' id="price" name = "goods_sell_price" value='${goodsDetail.goods_sell_price}' readonly/><br/>
 	수량 : <input type='number' id='cnt' name='order_cnt' value='1' min='1' max='10' onClick="totalAmt()"><br/>
-	총 가격 : <input type='text' id="amt" name = "order_amt" value='${goodsDetail.goods_sell_price}' readonly/><br/>
+	총 가격 : <input type='text' id="amt" name = "order_amt" value="${goodsDetail.goods_sell_price}" readonly/><br/>
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
 	<button name = order_basket>주문하기</button>

@@ -19,7 +19,7 @@ public class BasketDao {
 		basketMapper.addBasketInfo(orderInfoBean);
 	}
 	
-	public List<BasketBean> getBasketInfo(BasketBean basketInfoBean){
+	public List<OrderBean> getBasketInfo(OrderBean basketInfoBean){
 		  return basketMapper.getBasketInfo(basketInfoBean);
 	  }
 }

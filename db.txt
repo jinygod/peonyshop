@@ -76,6 +76,7 @@ CREATE TABLE basket_table(
     goods_name varchar2(20),
     goods_sell_price number,
     basket_goods_cnt number,
+    order_amt number,
     CONSTRAINT basket_user_fk foreign key (user_idx) references user_table (user_idx),
     constraint basket_goods_fk foreign key (goods_idx) references goods_table (goods_idx)
 	);

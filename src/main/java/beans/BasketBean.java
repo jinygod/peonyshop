@@ -2,7 +2,6 @@ package beans;
 
 public class BasketBean {
 
-	private String bakset_idx;
 	
 	private String user_idx;
 	private String user_name;
@@ -10,18 +9,13 @@ public class BasketBean {
 	private String goods_name;
 	private String goods_sell_price;
 	
+	private String basket_idx;
 	private String goods_thumbnail;
 	private String order_cnt;
 	private String basket_goods_cnt;
 	private String order_amt;
 	
 	
-	public String getBakset_idx() {
-		return bakset_idx;
-	}
-	public void setBakset_idx(String bakset_idx) {
-		this.bakset_idx = bakset_idx;
-	}
 	public String getUser_idx() {
 		return user_idx;
 	}
@@ -75,6 +69,12 @@ public class BasketBean {
 	}
 	public void setGoods_thumbnail(String goods_thumbnail) {
 		this.goods_thumbnail = goods_thumbnail;
+	}
+	public String getBasket_idx() {
+		return basket_idx;
+	}
+	public void setBasket_idx(String basket_idx) {
+		this.basket_idx = basket_idx;
 	}
 	
 }

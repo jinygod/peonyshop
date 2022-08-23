@@ -26,7 +26,6 @@ public class BasketController {
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
-	
 
 	/*
 	@GetMapping("/main")
@@ -73,11 +72,14 @@ public class BasketController {
 	}
 	
 	@GetMapping("/basket_list")
-	public String basket_list(BasketBean basketInfoBean, Model model) {
+	public String basket_list(OrderBean basketInfoBean, 
+							  Model model) {
 
+	//	basketInfoBean.setGoods_idx(orderInfoBean.getGoods_idx());
 		basketInfoBean.setUser_idx(loginUserBean.getUser_idx());
+		System.out.println(loginUserBean.getUser_idx());
 		basketService.getBasketInfo(basketInfoBean);
-		List<BasketBean> basketList = basketService.getBasketInfo(basketInfoBean);
+		List<OrderBean> basketList = basketService.getBasketInfo(basketInfoBean);
 		
 		model.addAttribute("basketList", basketList);
 		
