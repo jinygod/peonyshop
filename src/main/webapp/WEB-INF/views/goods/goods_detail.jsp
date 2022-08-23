@@ -11,7 +11,7 @@
 <head>
 
 <c:choose>
-	<c:when test="loginUserBean.isUserLogin() == false">
+	<c:when test="loginUserBean.user_idx == null">
 	  <script>
 	    window.onload=function(){
 	      alert("아이디나 비밀번호가 틀립니다.다시 로그인 하세요!");
@@ -112,7 +112,7 @@
 	상세내용 : ${goodsDetail.goods_content}<br/>
 
 	<button name = order_basket>주문하기</button>
-	<input type = "submit"  name = order_basket onClick = "addBasket()" value = "장바구니">
+	<input type = "submit"  name = order_basket value = "장바구니">
 
 	</form:form>
 

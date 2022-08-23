@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,6 +26,7 @@ public class BasketController {
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
+	
 
 	/*
 	@GetMapping("/main")
@@ -34,24 +36,6 @@ public class BasketController {
 		return "basket/main";
 	}
 	*/
-	
-	@GetMapping("/basket_success")
-	public String basket_success(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
-								@RequestParam("goods_idx") String goods_idx,
-								@RequestParam("topmenu_name") String topmenu_name,
-								OrderBean payInfoBean,
-								UserBean loginUserBean,
-								 Model model) {
-		
-		model.addAttribute("goods_idx", goods_idx);
-		model.addAttribute("topmenu_name", topmenu_name);
-		//model.addAttribute("userInfo",userInfo);
-		//model.addAttribute("orderList", orderList);
-		model.addAttribute("orderInfoBean",orderInfoBean);
-		model.addAttribute("loginUserBean", loginUserBean);
-		
-		return "basket/basket_success";
-	}
 	
 	@GetMapping("/main")
 	public String basket(@RequestParam("price") Integer price,
@@ -69,6 +53,35 @@ public class BasketController {
 		model.addAttribute("basket_amt", amt);
 		
 		return "basket/main";
+	}
+	
+	@GetMapping("/basket_success")
+	public String basket_success(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+								@RequestParam("goods_idx") String goods_idx,
+								@RequestParam("topmenu_name") String topmenu_name,
+								OrderBean payInfoBean,
+								 Model model) {
+		
+		model.addAttribute("goods_idx", goods_idx);
+		model.addAttribute("topmenu_name", topmenu_name);
+		//model.addAttribute("userInfo",userInfo);
+		//model.addAttribute("orderList", orderList);
+		model.addAttribute("orderInfoBean",orderInfoBean);
+		model.addAttribute("loginUserBean", loginUserBean);
+		
+		return "basket/basket_success";
+	}
+	
+	@GetMapping("/basket_list")
+	public String basket_list(BasketBean basketInfoBean, Model model) {
+
+		basketInfoBean.setUser_idx(loginUserBean.getUser_idx());
+		basketService.getBasketInfo(basketInfoBean);
+		List<BasketBean> basketList = basketService.getBasketInfo(basketInfoBean);
+		
+		model.addAttribute("basketList", basketList);
+		
+		return "basket/basket_list";
 	}
 	
 }

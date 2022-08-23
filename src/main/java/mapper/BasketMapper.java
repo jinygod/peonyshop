@@ -1,7 +1,11 @@
 package mapper;
 
-import org.apache.ibatis.annotations.Insert;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+
+import beans.BasketBean;
 import beans.OrderBean;
 
 public interface BasketMapper {
@@ -11,6 +15,11 @@ public interface BasketMapper {
 	  		  "values(basket_seq.nextval, #{user_idx}, #{user_name}, #{goods_idx}, #{goods_name}, #{goods_sell_price}, #{order_cnt}, #{order_amt})")
 	  void addBasketInfo(OrderBean orderInfoBean);
 	  
-	 
+	  @Select("select g.goods_thumbnail, b.goods_idx, b.goods_name,sum(b.basket_goods_cnt) as order_cnt, b.goods_sell_price, sum(b.order_amt) as order_amt "
+				+ "from goods_table g, basket_table b "
+				+ "where b.user_idx = #{user_idx} "
+				+ "group by g.goods_thumbnail, b.goods_idx, b.goods_name, b.goods_sell_price "
+				+ "order by b.goods_idx and b.basket_idx = #{basket_idx}")
+	  List<BasketBean> getBasketInfo(BasketBean basketInfoBean);
 	 
 }
