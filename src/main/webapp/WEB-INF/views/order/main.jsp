@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 <h1>order main</h1>
 <form:form action="${root }order/pay_pro" method='post'	modelAttribute="payInfoBean">
 	<input type='hidden' name = "order_idx" value='${orderInfoBean.order_idx}'/>
@@ -21,7 +22,7 @@
 	<input type='hidden' name = "order_cnt" value='${orderInfoBean.order_cnt }'/>
 	<input type='hidden' name = "order_amt" value='${orderInfoBean.order_amt }'/>
 	
-	<table align = center>
+	<table align = center  border = 'solid' '1px'>
 			<tr>
 				<th>주문번호</th>
 				<th>사진</th>

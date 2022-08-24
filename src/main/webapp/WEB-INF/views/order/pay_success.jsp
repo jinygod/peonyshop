@@ -10,7 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table align = center>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
+	<table align = center  border = 'solid' '1px'>
 			<tr>
 				<th>주문번호</th>
 				<th>사진</th>
