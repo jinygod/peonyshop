@@ -12,18 +12,13 @@
 <script src="js/footer.js"></script>
 <style>
 footer{
-	background-color : lightpink;
 }
 </style>
 </head>
 <body>
-
+<hr/>
 	<footer>
 		<div class="foot_area box_inner">
-			<ul class="foot_list clear">
-				<li><a href="이용약관.html"> 이용약관</a></li>
-				<li><a href="개인정보취급방침.html"> 개인정보취급방침</a></li>
-			</ul>
 			<h2><strong>peony</strong></h2>
 			<p class ="addr">경기도 성남시 분당구
 				<span class="gubun">/</span>
@@ -35,11 +30,15 @@ footer{
 					</span>
 				</span>
 			</p>
-			<p class="copy box_inner">Copyright(c) TouristIntour all right reserved</p>
+			<p class="copy box_inner">Copyright(c) peony.co.kr all right reserved</p>
 			<ul class="snslink clear">
-				<li ><a href="javascript:;">blog</a></li>
+				<li ><a href="javascript:;">blog</a></li> 
 				<li><a href="javascript:;">facebook</a></li>
 				<li><a href="javascript:;">instagram</a></li>
+			</ul>
+			<ul class="foot_list clear">
+				<li><a href="이용약관.html"> 이용약관</a></li>
+				<li><a href="개인정보취급방침.html"> 개인정보취급방침</a></li>
 			</ul>
 		</div>
 	</footer>
