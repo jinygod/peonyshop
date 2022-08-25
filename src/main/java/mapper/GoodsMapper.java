@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import beans.GoodsBean;
 
@@ -22,7 +23,7 @@ public interface GoodsMapper {
 			+ "where goods_category = #{topmenu_name}")
 	List<GoodsBean> getGoodsList(String topmenu_name);
 	
-	@Select("select goods_idx, goods_name, goods_thumbnail, goods_sell_price, goods_content "
+	@Select("select goods_idx, goods_category, goods_name, goods_thumbnail, goods_sell_price, goods_content "
 			+ "from goods_table "
 			+ "where goods_idx = #{goods_idx}")
 	GoodsBean getGoodsDetail(String goods_idx);
@@ -31,10 +32,15 @@ public interface GoodsMapper {
 			+ "from goods_table ")
 	List<GoodsBean> getAdminGoodsList();
 	
-	@Select("select goods_name, goods_category, goods_content, goods_sell_price, goods_thumbnail "
-			+ "from goods_table "
-			+ "where goods_idx=#{goods_idx}")
-	GoodsBean getModifyGoodsInfo(String goods_idx);
+	/*
+	 * @Select("select goods_name, goods_category, goods_content, goods_sell_price, goods_thumbnail "
+	 * + "from goods_table " + "where goods_idx=#{goods_idx}") GoodsBean
+	 * getModifyGoodsInfo(GoodsBean modifyGoodsBean);
+	 */
+	
+	@Update("UPDATE goods_table set goods_name = #{goods_name} , goods_category= #{goods_category}, goods_content = #{goods_content}, goods_sell_price = #{goods_sell_price} , goods_thumbnail = #{goods_thumbnail} "
+			+ "where goods_idx = #{goods_idx}")
+	void modifyGoodsInfo(GoodsBean modifyGoodsBean);
 	
 	@Delete("delete from goods_table "
 			+ "where goods_idx=#{goods_idx}")

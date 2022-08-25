@@ -112,7 +112,7 @@ public class GoodsController {
 	public String modify(@ModelAttribute("modifyGoodsBean") GoodsBean modifyGoodsBean,
 						@RequestParam("goods_idx") String goods_idx, Model model) {
 		
-		GoodsBean goodsInfo = goodsService.getModifyGoodsInfo(goods_idx);
+		GoodsBean goodsInfo = goodsService.getGoodsDetail(goods_idx);
 		
 		model.addAttribute("goodsInfo", goodsInfo);
 		model.addAttribute("goods_idx", goods_idx);
