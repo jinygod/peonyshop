@@ -14,6 +14,7 @@ public class OrderBean {
 	private String cnt;
 	private String amt;
 	
+	private String goods_category;
 	private String user_idx;
 	private String user_name;
 	private String user_phone;
@@ -25,7 +26,7 @@ public class OrderBean {
 	private String order_pay_option;
 	private String order_pay_bank;
 	private String order_date;
-	
+	private String basket_check_idx;
 	private String topmenu_name;
 	
 	
@@ -169,7 +170,25 @@ public class OrderBean {
 	public void setTopmenu_name(String topmenu_name) {
 		this.topmenu_name = topmenu_name;
 	}
-	
-	
+
+	public String getGoods_category() {
+		return goods_category;
+	}
+
+	public void setGoods_category(String goods_category) {
+		this.goods_category = goods_category;
+	}
+
+
+	public String getBasket_check_idx() {
+		return basket_check_idx;
+	}
+
+
+	public void setBasket_check_idx(String basket_check_idx) {
+		this.basket_check_idx = basket_check_idx;
+	}
+
+
 	
 }

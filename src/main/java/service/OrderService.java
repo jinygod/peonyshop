@@ -22,6 +22,10 @@ public class OrderService {
 		return orderDao.getOrderInfo(orderInfoBean);
 	}
 	
+	public List<OrderBean> getBasketToOrderInfo(OrderBean orderInfoBean){
+		return orderDao.getBasketToOrderInfo(orderInfoBean);
+	}
+	
 	public OrderBean getUserInfo(OrderBean orderInfoBean) {
 		return orderDao.getUserInfo(orderInfoBean);
 		

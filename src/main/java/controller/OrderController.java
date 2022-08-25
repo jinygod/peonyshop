@@ -1,8 +1,10 @@
 package controller;
 
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,12 +36,15 @@ public class OrderController {
 	@PostMapping("/order_pro")
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
 							@RequestParam("goods_idx") String goods_idx,
-							@RequestParam("order_basket") String order_basket, 
-							@RequestParam("topmenu_name") String topmenu_name,
-							OrderBean payInfoBean,
-							//UserBean loginUserBean,
-							 Model model) {
-
+							@RequestParam(value = "order_basket", required = false) String order_basket, 
+							@RequestParam(value = "topmenu_name", required = false) String topmenu_name,
+							OrderBean payInfoBean, 
+							HttpServletRequest request,
+							Model model) {
+		
+		System.out.println(orderInfoBean.getGoods_name());
+		// String[] basket_check_values = request.getParameterValues("goods_idx");
+		
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("topmenu_name", topmenu_name);
 		model.addAttribute("orderInfoBean", orderInfoBean);
@@ -47,7 +52,6 @@ public class OrderController {
 		System.out.println(loginUserBean.isUserLogin());
 		if (loginUserBean.isUserLogin() == true) {
 
-			
 			if (order_basket.equals("장바구니")) {
 				basketService.addBasketInfo(orderInfoBean);
 				return "redirect:/basket/basket_success";
@@ -55,16 +59,26 @@ public class OrderController {
 			} else {
 				orderService.addOrderInfo(orderInfoBean);
 				OrderBean userInfo = orderService.getUserInfo(orderInfoBean);
-				List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
 				model.addAttribute("userInfo", userInfo);
-				model.addAttribute("orderList", orderList);
-				return "order/main";
-			}
-		} else {
-			return "user/not_login";
-		}
 
-		
+				if (order_basket.equals("바로구매")) {
+					List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
+					model.addAttribute("orderList", orderList);
+
+				} else {
+					/*for (String value : basket_check_values) {
+						String basket_check_idx = value;
+						System.out.printf("basket_check : (%s)\n", basket_check_idx);*/
+
+						List<OrderBean> basketToOrderList = orderService.getBasketToOrderInfo(orderInfoBean);
+						model.addAttribute("basketToOrderList", basketToOrderList);
+					//}
+				}
+
+			}
+			return "order/main";
+		}
+		return "user/not_login";
 	}
 	
 	

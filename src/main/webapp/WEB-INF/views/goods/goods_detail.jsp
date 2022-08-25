@@ -121,7 +121,7 @@
 	
 
 	<input type = "submit"  name = order_basket value = "장바구니">
-	<button name = order_basket>주문하기</button>
+	<input type = "submit"  name = order_basket value = "바로구매">
 
 	</form:form>
 		</div>

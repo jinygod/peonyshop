@@ -69,8 +69,22 @@ public class GoodsService {
 		return goodsDao.getAdminGoodsList();
 	}
 	
-	public GoodsBean getModifyGoodsInfo(String goods_idx) {
-		return goodsDao.getModifyGoodsInfo(goods_idx);
+	/*
+	 * public GoodsBean getModifyGoodsInfo(GoodsBean modifyGoodsBean) {
+	 * 
+	 * return goodsDao.getModifyGoodsInfo(modifyGoodsBean); }
+	 */
+	
+	public void modifyGoodsInfo(GoodsBean modifyGoodsBean) {
+		
+		MultipartFile upload_thumbnail = modifyGoodsBean.getUpload_thumbnail();
+		
+		if(upload_thumbnail.getSize() > 0) {
+			String goods_name = saveUploadFile(upload_thumbnail);
+			modifyGoodsBean.setGoods_thumbnail(goods_name);
+		}
+		
+		goodsDao.modifyGoodsInfo(modifyGoodsBean);
 	}
 	
 	public void deleteGoods(String goods_idx) {

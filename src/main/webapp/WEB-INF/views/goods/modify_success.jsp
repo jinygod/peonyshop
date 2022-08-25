@@ -5,5 +5,5 @@
 
 <script>
 	alert('상품페이지 수정이 완료되었습니다')
-	location.href = '${root}goods/goods_detail?goods_idx=${goods_idx}'
+	location.href = '${root}goods/goods_list'
 </script>
