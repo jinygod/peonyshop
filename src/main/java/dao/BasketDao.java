@@ -22,4 +22,13 @@ public class BasketDao {
 	public List<OrderBean> getBasketInfo(OrderBean basketInfoBean){
 		  return basketMapper.getBasketInfo(basketInfoBean);
 	  }
+	
+	public OrderBean getModifyBaksetInfo(OrderBean orderInfoBean) {
+		return basketMapper.getModifyBaksetInfo(orderInfoBean);
+	}
+	
+	public void modifyBasketInfo(OrderBean modifyBasketBean) {
+		basketMapper.modifyBasketInfo(modifyBasketBean);
+	}
+	
 }

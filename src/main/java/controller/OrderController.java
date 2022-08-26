@@ -69,10 +69,11 @@ public class OrderController {
 					/*for (String value : basket_check_values) {
 						String basket_check_idx = value;
 						System.out.printf("basket_check : (%s)\n", basket_check_idx);*/
-
-						List<OrderBean> basketToOrderList = orderService.getBasketToOrderInfo(orderInfoBean);
-						model.addAttribute("basketToOrderList", basketToOrderList);
-					//}
+					List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
+					model.addAttribute("orderList", orderList);
+//						List<OrderBean> basketToOrderList = orderService.getBasketToOrderInfo(orderInfoBean);
+//						model.addAttribute("basketToOrderList", basketToOrderList);
+					
 				}
 
 			}
