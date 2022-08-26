@@ -43,6 +43,11 @@ public class UserService {
 		if(tempLoginUserBean2 != null) {
 			loginUserBean.setUser_idx(tempLoginUserBean2.getUser_idx());
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
+			loginUserBean.setUser_email(tempLoginUserBean2.getUser_email());
+			loginUserBean.setUser_phone(tempLoginUserBean2.getUser_phone());
+			loginUserBean.setUser_zipcode(tempLoginUserBean2.getUser_zipcode());
+			loginUserBean.setUser_addr1(tempLoginUserBean2.getUser_addr1());
+			loginUserBean.setUser_addr2(tempLoginUserBean2.getUser_addr2());
 			loginUserBean.setUserLogin(true);
 			
 		}

@@ -106,8 +106,7 @@
 	<input type='hidden' name = "user_zipcode" value='${loginUserBean.user_zipcode }'/>
 	<input type='hidden' name = "user_addr1" value='${loginUserBean.user_addr1 }'/>
 	<input type='hidden' name = "user_addr2" value='${loginUserBean.user_addr2 }'/>
-	
-	<input type = "submit"  name = order_basket value = "구매하기">
+	<input type = "submit"  name = order_basket value = "구매하기" >
 </form:form>
 
 

@@ -33,14 +33,6 @@ public class BasketController {
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 
-	/*
-	@GetMapping("/main")
-	public String basket(@RequestParam("user_idx") String user_idx, Model model) {
-		model.addAttribute("user_idx", user_idx);
-		
-		return "basket/main";
-	}
-	*/
 	
 	@GetMapping("/main")
 	public String basket(@RequestParam("price") Integer price,
@@ -85,9 +77,8 @@ public class BasketController {
 		basketInfoBean.setUser_idx(loginUserBean.getUser_idx());
 		basketService.getBasketInfo(basketInfoBean);
 		List<OrderBean> basketList = basketService.getBasketInfo(basketInfoBean);
-		
+		System.out.println("basketInfoBean : " + basketInfoBean);
 		model.addAttribute("basketList", basketList);
-		
 		return "basket/basket_list";
 	}
 	

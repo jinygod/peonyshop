@@ -20,7 +20,7 @@ public interface UserMapper {
 			"#{user_email}, #{user_phone}, #{user_zipcode}, #{user_addr1}, #{user_addr2})")
 	void addUserInfo(UserBean joinUserBean);
 	
-	@Select("select user_idx, user_name " + 
+	@Select("select user_idx, user_name , user_phone, user_email, user_zipcode, user_addr1, user_addr2 " + 
 			"from user_table " + 
 			"where user_id=#{user_id} and user_pw=#{user_pw}")
 	UserBean getLoginUserInfo(UserBean tempLoginUserBean);

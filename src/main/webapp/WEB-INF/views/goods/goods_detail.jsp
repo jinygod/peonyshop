@@ -82,6 +82,7 @@
 	<input type='hidden' name = "goods_name" value='${goodsDetail.goods_name }' />
 	<input type='hidden' name = "goods_thumbnail" value='${goodsDetail.goods_thumbnail }' />
 	<input type='hidden' name = "goods_category" value='${goodsDetail.goods_category }' />
+	<input type='hidden' name = "topmenu_name" value='${topmenu_name }' />
 	
 	<div id = grid>
 	<p class = img>
