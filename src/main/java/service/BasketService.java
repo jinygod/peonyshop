@@ -31,4 +31,12 @@ public class BasketService {
 		
 		return basketDao.getBasketInfo(basketInfoBean);
 	}
+	
+	public OrderBean getModifyBaksetInfo(OrderBean orderInfoBean) {
+		return basketDao.getModifyBaksetInfo(orderInfoBean);
+	}
+	
+	public void modifyBasketInfo(OrderBean modifyBasketBean) {
+		basketDao.modifyBasketInfo(modifyBasketBean);
+	}
 }

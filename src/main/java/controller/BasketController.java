@@ -9,13 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import beans.BasketBean;
+import beans.GoodsBean;
 import beans.OrderBean;
 import beans.UserBean;
 import service.BasketService;
+import service.GoodsService;
 
 @Controller
 @RequestMapping("/basket")
@@ -23,6 +26,9 @@ public class BasketController {
 	
 	@Autowired
 	private BasketService basketService;
+	
+	@Autowired
+	private GoodsService goodsService;
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -77,7 +83,6 @@ public class BasketController {
 
 	//	basketInfoBean.setGoods_idx(orderInfoBean.getGoods_idx());
 		basketInfoBean.setUser_idx(loginUserBean.getUser_idx());
-		System.out.println(loginUserBean.getUser_idx());
 		basketService.getBasketInfo(basketInfoBean);
 		List<OrderBean> basketList = basketService.getBasketInfo(basketInfoBean);
 		
@@ -86,4 +91,30 @@ public class BasketController {
 		return "basket/basket_list";
 	}
 	
+	@GetMapping("/basket_modify")
+	public String basket_modify(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+								 Model model) {
+		System.out.println("modify:"  + orderInfoBean.getGoods_idx());
+//		orderInfoBean.setGoods_idx();
+		OrderBean modifyBasketInfo = basketService.getModifyBaksetInfo(orderInfoBean);
+//		model.addAttribute("user_idx", loginUserBean.getUser_idx());
+		model.addAttribute("modifyBasketInfo", modifyBasketInfo);
+		return "basket/basket_modify";
+		
+	}
+	
+	
+	@PostMapping("/basket_modify_pro")
+	public String basket_modify_pro(@ModelAttribute("modifyBasketBean") OrderBean modifyBasketBean,
+									@RequestParam("goods_idx") String goods_idx,
+									GoodsBean getGoodsDetail,
+									Model model) {
+		
+		
+		basketService.modifyBasketInfo(modifyBasketBean);
+		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
+		model.addAttribute("goodsDetail", goodsDetail);
+		return "basket/modify_success";
+		
+	}
 }

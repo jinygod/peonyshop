@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-import beans.BasketBean;
+import beans.NoticeBean;
 import beans.OrderBean;
 
 public interface BasketMapper {
@@ -22,4 +23,14 @@ public interface BasketMapper {
 	  		+ "order by b.goods_idx")
 	  List<OrderBean> getBasketInfo(OrderBean basketInfoBean);
 	 
+		@Select("select g.goods_thumbnail, g.goods_sell_price, o.order_cnt, o.order_amt, g.goods_content "
+				+ "from goods_table g, order_table o"
+				+ "where goods_idx=#{goods_idx}")
+		OrderBean getModifyBaksetInfo(OrderBean orderInfoBean);
+	  
+	  @Update("UPDATE basket_table " +
+			  "set order_cnt = #{order_cnt}")
+	  void modifyBasketInfo(OrderBean modifyBasketBean);
+	  
+	  
 }
