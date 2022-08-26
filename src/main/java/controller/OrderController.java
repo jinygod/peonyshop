@@ -43,12 +43,10 @@ public class OrderController {
 							Model model) {
 		
 		System.out.println(orderInfoBean.getGoods_name());
-		// String[] basket_check_values = request.getParameterValues("goods_idx");
 		
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("topmenu_name", topmenu_name);
 		model.addAttribute("orderInfoBean", orderInfoBean);
-		//model.addAttribute("loginUserBean", loginUserBean);
 		System.out.println(loginUserBean.isUserLogin());
 		if (loginUserBean.isUserLogin() == true) {
 

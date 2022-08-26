@@ -46,7 +46,6 @@ public class GoodsController {
 	public String goods_detail(@RequestParam("topmenu_name") String topmenu_name,
 								@RequestParam("goods_idx") String goods_idx,
 								GoodsBean getGoodsDetail, Model model
-							//	UserBean loginUserBean
 								)  {
 		
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
