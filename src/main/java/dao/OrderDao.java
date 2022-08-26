@@ -22,6 +22,10 @@ public class OrderDao {
 		return orderMapper.getOrderInfo(orderInfoBean);
 	}
 	
+	public List<OrderBean> getBasketToOrderInfo(OrderBean orderInfoBean){
+		return orderMapper.getBasketToOrderInfo(orderInfoBean);
+	}
+	
 	public OrderBean getUserInfo(OrderBean orderInfoBean) {
 		return orderMapper.getUserInfo(orderInfoBean);
 	}

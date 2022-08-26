@@ -81,7 +81,7 @@
 	<input type='hidden' name = "goods_idx" value='${goodsDetail.goods_idx }' />
 	<input type='hidden' name = "goods_name" value='${goodsDetail.goods_name }' />
 	<input type='hidden' name = "goods_thumbnail" value='${goodsDetail.goods_thumbnail }' />
-	<input type='hidden' name = "topmenu_name" value='${topmenu_name}' />
+	<input type='hidden' name = "goods_category" value='${goodsDetail.goods_category }' />
 	
 	<div id = grid>
 	<p class = img>
@@ -121,7 +121,7 @@
 	
 
 	<input type = "submit"  name = order_basket value = "장바구니">
-	<button name = order_basket>주문하기</button>
+	<input type = "submit"  name = order_basket value = "바로구매">
 
 	</form:form>
 		</div>

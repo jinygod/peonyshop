@@ -30,11 +30,16 @@ public class GoodsDao {
 		return goodsMapper.getAdminGoodsList();
 	}
 	
-	public GoodsBean getModifyGoodsInfo(String goods_idx) {
-		return goodsMapper.getModifyGoodsInfo(goods_idx);
-	}
+	/*
+	 * public GoodsBean getModifyGoodsInfo(GoodsBean modifyGoodsBean) { return
+	 * goodsMapper.getModifyGoodsInfo(modifyGoodsBean); }
+	 */
 	
 	public void deleteGoods(String goods_idx) {
 		goodsMapper.deleteGoods(goods_idx);
+	}
+	
+	public void modifyGoodsInfo(GoodsBean modifyGoodsBean) {
+		goodsMapper.modifyGoodsInfo(modifyGoodsBean);
 	}
 }

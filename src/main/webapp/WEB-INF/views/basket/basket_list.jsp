@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 <script>
 	var xgoods = new Array();
@@ -15,44 +16,47 @@
 	function totalAmt(idx) {
 		var goods_idx = xgoods[idx];
 		
-		/*
-		for(var idx=0; idx < xgoods.length; idx++) {
-			alert(xgoods[idx]);
-		}
-		*/
-		
-		let price = document.getElementById('price_' + goods_idx).value;
-		let cnt = document.getElementById('cnt_' + goods_idx).value;
-		var tot = price * cnt;
-		let amt = document.getElementById('amt_' + goods_idx);
-		amt.value = tot;
-	} 
-
+		let price_goods_idx = document.getElementById('price_' + goods_idx).value;
+		let cnt_goods_idx = document.getElementById('cnt_' + goods_idx).value;
+		var tot = price_goods_idx * cnt_goods_idx;
+		let amt_goods_idx = document.getElementById('amt_' + goods_idx);
+		amt_goods_idx.value = tot;
+	} 	
 	
-	/* function basket_check(){
 		
-		var chk = document.getElementById("basket_check").checked;	// true, false
-		var idx = document.getElementByID("basket_check").value;
-		if (chk == true) {
-			for(var i=0; i<xgoods.length; i++) {
-				var arraychk[i] = idx;
-			}
+	/* function checkbox(idx) {
+		var goods_idx = xgoods[idx];
+		var idx_goods_idx = document.getElementById('idx_' + goods_idx).value;
+		var basket_check_idx = document.getElementById('basket_check_idx').value;
+		basket_check_idx.value = idx_goods_idx;
+		alert(idx_goods_idx);
 		}
-		var arraychk = document.getElementsByName("chk");	//basket_no
-		var len = arraychk.length;
-			for(var i=0; i<len; i++) {
-					arraychk[i].checked = chk;	// chk가 true면 arraychk도 true
-			}
 		
-		/* for(var idx=0; idx < xgoods.length; idx++) {
-			var basket_check = basket_check[idx];
+	}
+	 */
+		/* $('input:checkbox[name=goods_idx]:checked').each(function() {
+		var goods_idx = xgoods[idx];
+		var idx_goods_idx = document.getElementById('idx_' + goods_idx).value;
+		alert(idx_goods_idx);
+		}
+		 */
+	
+	 /* $(function() {
+		$(#basketOrder).submit(function() {
+			var obj = $("[name=goods_idx]");
+			var chkArray = new Array();
 			
-			alert('데이터가 담겼습니다')
-		} 
-		
-	} */
+			$('input:checkbox[name=goods_idx]:checked').each(function() {
+				chkArray.push(this.value);
+			});
+			
+			var chkArrays = chkArray.join(',');
+			alert('### ' + chkArrays);
+			$('basket_check_idx').val(chkArrays);
+			
+		});
+	  }); */
 	
-
 </script>
 
 <meta charset="UTF-8">
@@ -60,36 +64,53 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
-<form:form action="${root }order/pay_pro" method='post'	modelAttribute="payInfoBean">
+<form:form action="${root }order/order_pro" method='post' id='basketOrder' modelAttribute="orderInfoBean">
+
 <h1>장바구니</h1>
 		<table align = center  border = 'solid' '1px' >
 		<tr>
-			<th>선택</th>
+<!-- 			<th>선택</th> -->
 			<th>사진</th>
 			<th>상품명</th>
 			<th>상품가격</th>
 			<th>상품수량</th>
+			<th>수정</th>
 			<th>총 가격</th>
+			<th>삭제</th>
 		</tr>
 		<c:forEach var='obj' items="${basketList }" varStatus="status">
+			<input type='hidden' name = "goods_category" value='${obj.goods_category}' />
+			<input type='hidden' name = "goods_idx" value='${obj.goods_idx}' />
+<!-- 			<input type='hidden' name="basket_check_idx" id="basket_check_idx" value=""/> -->
 			<c:set var='goods' value="${obj}"/>
 			<script>
 				xgoods.push('${goods.goods_idx}');
 			</script>
 			<tr>
-				<td><input type="checkbox" id = "basket_check" name = "basket_check" value = "${obj.goods_idx }" onClick = "basket_check()"></td>
+<%-- 				<td><input type="checkbox" id="idx_${obj.goods_idx}" name = "goods_idx" value = "${obj.goods_idx}" ></td> --%>
 				<td><img src="${root }upload/${obj.goods_thumbnail}" width=100px, height=100px/><br/></td>
-				<td>${obj.goods_name }</td>
+				<td><input type='text' id="goods_name" name="goods_name" value = "${obj.goods_name }"></td>
 				<td><input type='text' id="price_${obj.goods_idx}" name = "goods_sell_price" value='${obj.goods_sell_price}' readonly/></td>
-				<td><input type='number' id="cnt_${obj.goods_idx}" name='order_cnt' value='${obj.order_cnt }' min='1' max='30' onClick="totalAmt('${status.index}')"></td>
+				<td><input type='text' id="cnt_${obj.goods_idx}" name='order_cnt' value='${obj.order_cnt }' readonly ></td>
+				<td><a href = '${root }basket/basket_modify'> <input type = 'button' value = '수정'></a></td>
 				<td><input type='text' id="amt_${obj.goods_idx}" name = "order_amt" value="${obj.order_amt}" readonly/></td>
+				<td><a href = '${root }basket/basket_delete'> <input type = 'button' value = '삭제'></a></td>
 			</tr>	
 		</c:forEach>
 	</table>
-
 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
-
-	<button type = "submit"> 구매하기 </button>
+	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
+	<input type='hidden' name = "user_phone" value='${loginUserBean.user_phone }' />
+	<input type='hidden' name = "user_email" value='${loginUserBean.user_email }' />
+	<input type='hidden' name = "user_birth" value='${loginUserBean.user_birth }' />
+	<input type='hidden' name = "user_zipcode" value='${loginUserBean.user_zipcode }'/>
+	<input type='hidden' name = "user_addr1" value='${loginUserBean.user_addr1 }'/>
+	<input type='hidden' name = "user_addr2" value='${loginUserBean.user_addr2 }'/>
+	
+	<input type = "submit"  name = order_basket value = "구매하기">
 </form:form>
+
+
+
 </body>
 </html>
