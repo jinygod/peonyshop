@@ -10,6 +10,7 @@ public class OrderBean {
 	private String goods_idx;
 	private String goods_sell_price;
 	private String goods_thumbnail;
+	private String goods_content;
 	
 	private String cnt;
 	private String amt;
@@ -184,6 +185,12 @@ public class OrderBean {
 
 	public void setBasket_check_idx(String basket_check_idx) {
 		this.basket_check_idx = basket_check_idx;
+	}
+	public String getGoods_content() {
+		return goods_content;
+	}
+	public void setGoods_content(String goods_content) {
+		this.goods_content = goods_content;
 	}
 
 

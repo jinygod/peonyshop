@@ -92,7 +92,7 @@
 				<td><input type='text' id="goods_name" name="goods_name" value = "${obj.goods_name }"></td>
 				<td><input type='text' id="price_${obj.goods_idx}" name = "goods_sell_price" value='${obj.goods_sell_price}' readonly/></td>
 				<td><input type='text' id="cnt_${obj.goods_idx}" name='order_cnt' value='${obj.order_cnt }' readonly ></td>
-				<td><a href = '${root }basket/basket_modify'> <input type = 'button' value = '수정'></a></td>
+				<td><a href = '${root }basket/basket_modify?goods_idx=${obj.goods_idx}'> <input type = 'button' value = '수정'></a></td>
 				<td><input type='text' id="amt_${obj.goods_idx}" name = "order_amt" value="${obj.order_amt}" readonly/></td>
 				<td><a href = '${root }basket/basket_delete'> <input type = 'button' value = '삭제'></a></td>
 			</tr>	

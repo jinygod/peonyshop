@@ -84,7 +84,10 @@ public class BasketController {
 	
 	@GetMapping("/basket_modify")
 	public String basket_modify(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+								@RequestParam("goods_idx") String goods_idx,
 								 Model model) {
+		
+		model.addAttribute("goods_idx", goods_idx);
 		System.out.println("modify:"  + orderInfoBean.getGoods_idx());
 //		orderInfoBean.setGoods_idx();
 		OrderBean modifyBasketInfo = basketService.getModifyBaksetInfo(orderInfoBean);
@@ -105,7 +108,7 @@ public class BasketController {
 		basketService.modifyBasketInfo(modifyBasketBean);
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
-		return "basket/modify_success";
+		return "basket/basket_modify_success";
 		
 	}
 }
