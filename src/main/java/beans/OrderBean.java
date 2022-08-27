@@ -6,11 +6,15 @@ public class OrderBean {
 	private String goods_name;
 	private String order_price;
 	private String order_cnt;
+	private String basket_goods_cnt;
 	private String order_amt;
 	private String goods_idx;
 	private String goods_sell_price;
 	private String goods_thumbnail;
 	private String goods_content;
+	private String basket_idx;
+	
+	private boolean basketExist;
 	
 	private String cnt;
 	private String amt;
@@ -30,9 +34,9 @@ public class OrderBean {
 	private String basket_check_idx;
 	private String topmenu_name;
 	
-	
-	
-	
+	public OrderBean() {
+		this.basketExist = false;
+	}
 	
 	public String getOrder_idx() {
 		return order_idx;
@@ -191,6 +195,24 @@ public class OrderBean {
 	}
 	public void setGoods_content(String goods_content) {
 		this.goods_content = goods_content;
+	}
+	public String getBasket_idx() {
+		return basket_idx;
+	}
+	public void setBasket_idx(String basket_idx) {
+		this.basket_idx = basket_idx;
+	}
+	public String getBasket_goods_cnt() {
+		return basket_goods_cnt;
+	}
+	public void setBasket_goods_cnt(String basket_goods_cnt) {
+		this.basket_goods_cnt = basket_goods_cnt;
+	}
+	public boolean isBasketExist() {
+		return basketExist;
+	}
+	public void setBasketExist(boolean basketExist) {
+		this.basketExist = basketExist;
 	}
 
 

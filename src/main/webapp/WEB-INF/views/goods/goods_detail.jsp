@@ -6,40 +6,10 @@
 <%-- <c:set var='login' value="${loginUserBean }" scope="page" /> --%>
 
 <!DOCTYPE html>
-
 <html>
 <head>
 
-
 <script>
-
-	
-
-	// 장바구니 버튼 클릭 (url에 파라미터값 받기)
-	/* function basket(){
-		
-			var url = "/peonyshop/basket/main";
-
-			var price = document.getElementById('price').value;
-			var cnt = document.getElementById('cnt').value;
-			var amt = price * cnt;
-			
-			url += "?price=" + price;
-			url += "&cnt=" + cnt;
-			url += "&amt=" + amt;
-			
-		//	alert(url);
-			location.href = url;
-			
-	} */
-/* 	
-	// tot 값 셋팅
-	function totalAmt() {
-		/* var price = document.getElementById('price').value;
-		var cnt = document.getElementById('cnt').value;
-		var tot = price * cnt;
-		var amt = document.getElementById('amt');
-		amt.value = tot;  */
 	
 	function totalAmt() {
 		let price = document.querySelector('#price').value;

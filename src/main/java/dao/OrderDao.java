@@ -18,12 +18,16 @@ public class OrderDao {
 		 orderMapper.addOrderInfo(orderInfoBean);
 	}
 	
+	public void addBasketToOrderInfo(OrderBean basketOrderBean) {
+		orderMapper.addBasketToOrderInfo(basketOrderBean);
+	}
+	
 	public List<OrderBean> getOrderInfo(OrderBean orderInfoBean){
 		return orderMapper.getOrderInfo(orderInfoBean);
 	}
 	
-	public List<OrderBean> getBasketToOrderInfo(OrderBean orderInfoBean){
-		return orderMapper.getBasketToOrderInfo(orderInfoBean);
+	public List<OrderBean> getBasketToOrderInfo(OrderBean basketOrderBean){
+		return orderMapper.getBasketToOrderInfo(basketOrderBean);
 	}
 	
 	public OrderBean getUserInfo(OrderBean orderInfoBean) {
@@ -32,6 +36,18 @@ public class OrderDao {
 	
 	public List<OrderBean> addPayInfo(OrderBean payInfoBean) {
 		return orderMapper.addPayInfo(payInfoBean);
+	}
+	
+	public void modifyOrderUserInfo(OrderBean basketOrderBean) {
+		orderMapper.modifyOrderUserInfo(basketOrderBean);
+	}
+	
+	public void modifyBasketCntInfo(OrderBean orderInfoBean) {
+		orderMapper.modifyBasketCntInfo(orderInfoBean);
+	}
+	
+	public void deleteBasketInfo(String user_idx) {
+		orderMapper.deleteBasketInfo(user_idx);
 	}
 
 }

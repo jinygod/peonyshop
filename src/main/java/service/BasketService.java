@@ -20,6 +20,17 @@ public class BasketService {
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 	
+	public boolean checkBasketExist(String goods_idx) {
+		String basket_idx = basketDao.checkBasketExist(goods_idx);
+		
+		if(basket_idx == null) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 	public void addBasketInfo(OrderBean orderInfoBean) {
 		basketDao.addBasketInfo(orderInfoBean);
 	}
@@ -38,5 +49,9 @@ public class BasketService {
 	
 	public void modifyBasketInfo(OrderBean modifyBasketBean) {
 		basketDao.modifyBasketInfo(modifyBasketBean);
+	}
+	
+	public void deleteBasketInfo(String basket_idx) {
+		basketDao.deleteBasketInfo(basket_idx);
 	}
 }

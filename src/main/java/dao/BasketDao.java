@@ -15,6 +15,10 @@ public class BasketDao {
 	@Autowired
 	private BasketMapper basketMapper;
 	
+	public String checkBasketExist(String goods_idx) {
+		return basketMapper.checkBasketExist(goods_idx);
+	}
+	
 	public void addBasketInfo(OrderBean orderInfoBean) {
 		basketMapper.addBasketInfo(orderInfoBean);
 	}
@@ -31,4 +35,7 @@ public class BasketDao {
 		basketMapper.modifyBasketInfo(modifyBasketBean);
 	}
 	
+	public void deleteBasketInfo(String basket_idx) {
+		basketMapper.deleteBasketInfo(basket_idx);
+	}
 }
