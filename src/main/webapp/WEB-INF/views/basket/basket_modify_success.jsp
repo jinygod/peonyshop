@@ -3,6 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var='root' value="${pageContext.request.contextPath}/"/>
 <script>
-	alert('장바구니에 추가되었습니다')
-	location.href='${root}goods/goods_detail?topmenu_name=${topmenu_name}&goods_idx=${goods_idx}'
+	alert('수량이 변경되었습니다')
+	location.href='${root}basket/basket_list'
 </script>
