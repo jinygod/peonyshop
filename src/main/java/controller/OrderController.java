@@ -35,46 +35,46 @@ public class OrderController {
 
 	@PostMapping("/order_pro")
 	public String order_pro(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+							@ModelAttribute("basketOrderBean") OrderBean basketOrderBean,
 							@RequestParam("goods_idx") String goods_idx,
 							@RequestParam(value = "order_basket", required = false) String order_basket, 
 							@RequestParam(value = "topmenu_name", required = false) String topmenu_name,
-							OrderBean payInfoBean, 
-							HttpServletRequest request,
 							Model model) {
-		
-		System.out.println(orderInfoBean.getGoods_name());
 		
 		model.addAttribute("goods_idx", goods_idx);
 		model.addAttribute("topmenu_name", topmenu_name);
 		model.addAttribute("orderInfoBean", orderInfoBean);
-		System.out.println(loginUserBean.isUserLogin());
+		model.addAttribute("basketOrderBean", basketOrderBean);
+
 		if (loginUserBean.isUserLogin() == true) {
 
 			if (order_basket.equals("장바구니")) {
-				basketService.addBasketInfo(orderInfoBean);
+				
+				boolean chk = basketService.checkBasketExist(goods_idx);	// BasketTable에 해당 goods_idx 값을 가져옴
+				if(chk == true) {											// BasketTable에 값이 없으면 true
+				basketService.addBasketInfo(orderInfoBean);					// BasketTable에 값 추가
 				return "redirect:/basket/basket_success";
-
-			} else {
-				orderService.addOrderInfo(orderInfoBean);
-				OrderBean userInfo = orderService.getUserInfo(orderInfoBean);
-				model.addAttribute("userInfo", userInfo);
-
-				if (order_basket.equals("바로구매")) {
-					List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
-					model.addAttribute("orderList", orderList);
-
 				} else {
-					/*for (String value : basket_check_values) {
-						String basket_check_idx = value;
-						System.out.printf("basket_check : (%s)\n", basket_check_idx);*/
-					List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);
+					orderService.modifyBasketCntInfo(orderInfoBean);		// BasketTable에 기존 값(수량) 수정
+					return "redirect:/basket/basket_success";
+				}
+				
+			} else {
+				if(order_basket.equals("바로구매")){
+					orderService.addOrderInfo(orderInfoBean);								// order_table에 값 추가(Insert)
+					OrderBean userInfo = orderService.getUserInfo(orderInfoBean);			// user정보 가져옴
+					List<OrderBean> orderList = orderService.getOrderInfo(orderInfoBean);	// order_table 리스트 조회(Select)
 					model.addAttribute("orderList", orderList);
-//						List<OrderBean> basketToOrderList = orderService.getBasketToOrderInfo(orderInfoBean);
-//						model.addAttribute("basketToOrderList", basketToOrderList);
-					
+					model.addAttribute("userInfo", userInfo);
+				} else {																	// 장바구니에서 구매하기
+					orderService.addBasketToOrderInfo(basketOrderBean);						// order_table에 값 추가(Insert)
+					List<OrderBean> orderList = orderService.getBasketToOrderInfo(basketOrderBean);	// order_table 리스트 조회(Select)
+					orderService.modifyOrderUserInfo(basketOrderBean);								// order_table에 user정보 추가
+					model.addAttribute("orderList", orderList);
 				}
 
-			}
+
+			} 
 			return "order/main";
 		}
 		return "user/not_login";
@@ -83,18 +83,14 @@ public class OrderController {
 	
 	@PostMapping("/pay_pro")
 	public String pay_pro(@ModelAttribute("payInfoBean") OrderBean payInfoBean,
-							OrderBean orderInfoBean,
 						   Model model) {
 		
 		List<OrderBean> payInfo = orderService.addPayInfo(payInfoBean);
-		OrderBean payUserInfo = orderService.getUserInfo(orderInfoBean);
-//		orderService.addOrderInfo(orderInfoBean);
-//		model.addAttribute("orderInfoBean",orderInfoBean);
 		model.addAttribute("payInfo", payInfo);
-		model.addAttribute("payUserInfo", payUserInfo);
 		model.addAttribute("order_pay_option", payInfoBean.getOrder_pay_option());
 		
-		System.out.println(payInfoBean.getOrder_pay_option());
+		orderService.deleteBasketInfo(loginUserBean.getUser_idx());
+		
 		return "order/pay_success";
 	}
 

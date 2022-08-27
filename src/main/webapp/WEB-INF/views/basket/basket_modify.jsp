@@ -69,18 +69,20 @@
 </head>
 <body>
 	<form:form action='${root }basket/basket_modify_pro' method='post' modelAttribute="modifyBasketBean" >
-<%-- 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/> --%>
-<%-- 	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/> --%>
-<%-- 	<input type='hidden' name = "user_phone" value='${loginUserBean.user_phone }' /> --%>
-<%-- 	<input type='hidden' name = "user_email" value='${loginUserBean.user_email }' /> --%>
-<%-- 	<input type='hidden' name = "user_birth" value='${loginUserBean.user_birth }' /> --%>
-<%-- 	<input type='hidden' name = "user_zipcode" value='${loginUserBean.user_zipcode }'/> --%>
-<%-- 	<input type='hidden' name = "user_addr1" value='${loginUserBean.user_addr1 }'/> --%>
-<%-- 	<input type='hidden' name = "user_addr2" value='${loginUserBean.user_addr2 }'/> --%>
-	<input type='hidden' name = "goods_idx" value='${basketList.goods_idx }' />
+	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
+	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
+	<input type='hidden' name = "user_phone" value='${loginUserBean.user_phone }' />
+	<input type='hidden' name = "user_email" value='${loginUserBean.user_email }' />
+	<input type='hidden' name = "user_birth" value='${loginUserBean.user_birth }' />
+	<input type='hidden' name = "user_zipcode" value='${loginUserBean.user_zipcode }'/>
+	<input type='hidden' name = "user_addr1" value='${loginUserBean.user_addr1 }'/>
+	<input type='hidden' name = "user_addr2" value='${loginUserBean.user_addr2 }'/>
+<%-- 	<input type='hidden' name = "goods_idx" value='${basketList.goods_idx }' />
 	<input type='hidden' name = "goods_name" value='${basketList.goods_name }' />
 	<input type='hidden' name = "goods_thumbnail" value='${basketList.goods_thumbnail }' />
-	<input type='hidden' name = "goods_category" value='${basketList.goods_category }' />
+	<input type='hidden' name = "goods_category" value='${basketList.goods_category }' /> --%>
+	<input type='hidden' name = "basket_idx" value='${basket_idx }' />
+	<input type='hidden' name = "goods_idx" value='${modifyBasketInfo.goods_idx }' />
 	
 	<div id = grid>
 	<p class = img>
@@ -103,11 +105,11 @@
 		</tr>
 		<tr>
 			<th>수량</th>
-			<td><input type='number' id='cnt' name='order_cnt' value='1' min='1' max='10' onClick="totalAmt()"></td>
+			<td><input type='number' id='cnt' name='order_cnt' value='${modifyBasketInfo.basket_goods_cnt }' min='1' max='10' onClick="totalAmt()"></td>
 		</tr>
 		<tr>
 			<th>총 가격</th>
-			<td><input type='text' id="amt" name = "order_amt" value="${modifyBasketInfo.goods_sell_price}" readonly/></td>
+			<td><input type='text' id="amt" name = "order_amt" value="${modifyBasketInfo.order_amt}" readonly/></td>
 		</tr>
 		
 	</table>

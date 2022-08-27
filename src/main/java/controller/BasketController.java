@@ -38,7 +38,7 @@ public class BasketController {
 	public String basket(@RequestParam("price") Integer price,
 						 @RequestParam("cnt") Integer cnt,
 						 @RequestParam("amt") Integer amt,
-						 BasketBean basketInfoBean,
+						 //BasketBean basketInfoBean,
 						 Model model) {
 		
 		// 장바구니 user_idx가 안넘어가서 일시중단
@@ -79,20 +79,26 @@ public class BasketController {
 		List<OrderBean> basketList = basketService.getBasketInfo(basketInfoBean);
 		System.out.println("basketInfoBean : " + basketInfoBean);
 		model.addAttribute("basketList", basketList);
+
 		return "basket/basket_list";
 	}
 	
 	@GetMapping("/basket_modify")
-	public String basket_modify(@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
+	public String basket_modify(@ModelAttribute("modifyBasketBean") OrderBean modifyBasketBean,
+								@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
 								@RequestParam("goods_idx") String goods_idx,
+								@RequestParam("basket_idx") String basket_idx,
 								 Model model) {
 		
+		model.addAttribute("basket_idx", basket_idx);
 		model.addAttribute("goods_idx", goods_idx);
 		System.out.println("modify:"  + orderInfoBean.getGoods_idx());
 //		orderInfoBean.setGoods_idx();
 		OrderBean modifyBasketInfo = basketService.getModifyBaksetInfo(orderInfoBean);
 //		model.addAttribute("user_idx", loginUserBean.getUser_idx());
 		model.addAttribute("modifyBasketInfo", modifyBasketInfo);
+		
+		
 		return "basket/basket_modify";
 		
 	}
@@ -100,15 +106,25 @@ public class BasketController {
 	
 	@PostMapping("/basket_modify_pro")
 	public String basket_modify_pro(@ModelAttribute("modifyBasketBean") OrderBean modifyBasketBean,
+									@ModelAttribute("orderInfoBean") OrderBean orderInfoBean,
 									@RequestParam("goods_idx") String goods_idx,
+									@RequestParam(value = "basket_idx") String basket_idx,
 									GoodsBean getGoodsDetail,
 									Model model) {
 		
-		
+		model.addAttribute("basket_idx", basket_idx);
 		basketService.modifyBasketInfo(modifyBasketBean);
 		GoodsBean goodsDetail = goodsService.getGoodsDetail(goods_idx);
 		model.addAttribute("goodsDetail", goodsDetail);
 		return "basket/basket_modify_success";
 		
+	}
+	
+	@GetMapping("/basket_delete")
+	public String basket_delete(@RequestParam("basket_idx") String basket_idx) {
+		
+		basketService.deleteBasketInfo(basket_idx);
+		
+		return "basket/basket_delete";
 	}
 }

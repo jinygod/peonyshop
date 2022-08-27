@@ -22,25 +22,25 @@
 			</tr>
 			<c:forEach var='obj' items="${payInfo }">
 			<tr>
-				<td>${obj.order_idx }</td>
+				<td><input type='text' id="order_idx" name ="order_idx" value = "${obj.order_idx }" readonly></td>
 				<td><img src="${root }upload/${obj.goods_thumbnail}" width=100px, height=100px/><br/></td>
-				<td>${obj.goods_name}</td>
-				<td>${obj.goods_sell_price }</td>
-				<td>${obj.order_cnt }</td>
-				<td>${obj.order_amt }</td>
+				<td><input type='text' id="goods_name" name ="goods_name" value = "${obj.goods_name }" readonly></td>
+				<td><input type='text' id="order_price" name ="order_price" value = "${obj.order_price }" readonly></td>
+				<td><input type='text' id="order_cnt" name ="order_cnt" value = "${obj.order_cnt }" readonly></td>
+				<td><input type='text' id="order_amt" name ="order_amt" value = "${obj.order_amt }" readonly></td>
 			</tr>
 			</c:forEach>
 		</table>
 	
 		<div align = center>
 		<h1>유저 정보</h1>
-		<label>이름 <input type='text'  name = "user_name" value='${payUserInfo.user_name}' readonly/></label><br/>
-		<label>생년월일 <input type='text'  name = "user_birth" value='${payUserInfo.user_birth}' readonly/></label><br/>
-		<label>이메일 <input type='text'  name = "user_email" value='${payUserInfo.user_email}' readonly/></label><br/>
-		<label>휴대폰 번호 <input type='text'  name = "user_phone" value='${payUserInfo.user_phone}' readonly/></label><br/>
-		<label>우편번호 <input type='text'  name = "user_zipcode" value='${payUserInfo.user_zipcode}' readonly/></label><br/>
-		<label>주소 <input type='text'  name = "user_addr1" value='${payUserInfo.user_addr1}' readonly/></label><br/>
-		<label>상세주소 <input type='text'  name = "user_addr2" value='${payUserInfo.user_addr2}' readonly/> </label><br/>
+		<label>이름 <input type='text'  name = "user_name" value='${loginUserBean.user_name}' readonly/></label><br/>
+		<label>생년월일 <input type='text'  name = "user_birth" value='${loginUserBean.user_birth}' readonly/></label><br/>
+		<label>이메일 <input type='text'  name = "user_email" value='${loginUserBean.user_email}' readonly/></label><br/>
+		<label>휴대폰 번호 <input type='text'  name = "user_phone" value='${loginUserBean.user_phone}' readonly/></label><br/>
+		<label>우편번호 <input type='text'  name = "user_zipcode" value='${loginUserBean.user_zipcode}' readonly/></label><br/>
+		<label>주소 <input type='text'  name = "user_addr1" value='${loginUserBean.user_addr1}' readonly/></label><br/>
+		<label>상세주소 <input type='text'  name = "user_addr2" value='${loginUserBean.user_addr2}' readonly/> </label><br/>
 		<label>결제방법<input type='text'  name = "order_pay_option" value='${order_pay_option}' readonly/></label><br/>
 		<a href = ${root }> 홈으로 </a>
 		</div>

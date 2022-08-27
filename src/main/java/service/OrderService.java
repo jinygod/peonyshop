@@ -18,12 +18,16 @@ public class OrderService {
 		orderDao.addOrderInfo(orderInfoBean);
 	}
 	
+	public void addBasketToOrderInfo(OrderBean basketOrderBean) {
+		orderDao.addBasketToOrderInfo(basketOrderBean);
+	}
+	
 	public List<OrderBean> getOrderInfo(OrderBean orderInfoBean){
 		return orderDao.getOrderInfo(orderInfoBean);
 	}
 	
-	public List<OrderBean> getBasketToOrderInfo(OrderBean orderInfoBean){
-		return orderDao.getBasketToOrderInfo(orderInfoBean);
+	public List<OrderBean> getBasketToOrderInfo(OrderBean basketOrderBean){
+		return orderDao.getBasketToOrderInfo(basketOrderBean);
 	}
 	
 	public OrderBean getUserInfo(OrderBean orderInfoBean) {
@@ -32,5 +36,17 @@ public class OrderService {
 	}
 	public List<OrderBean> addPayInfo(OrderBean payInfoBean) {
 		return orderDao.addPayInfo(payInfoBean);
+	}
+	
+	public void modifyOrderUserInfo(OrderBean basketOrderBean) {
+		orderDao.modifyOrderUserInfo(basketOrderBean);
+	}
+	
+	public void modifyBasketCntInfo(OrderBean orderInfoBean) {
+		orderDao.modifyBasketCntInfo(orderInfoBean);
+	}
+	
+	public void deleteBasketInfo(String user_idx) {
+		orderDao.deleteBasketInfo(user_idx);
 	}
 }

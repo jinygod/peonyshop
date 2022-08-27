@@ -64,7 +64,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
-<form:form action="${root }order/order_pro" method='post' id='basketOrder' modelAttribute="orderInfoBean">
+<form:form action="${root }order/order_pro" method='post' id='basketOrder' modelAttribute="basketOrderBean">
 
 <h1>장바구니</h1>
 		<table align = center  border = 'solid' '1px' >
@@ -81,7 +81,8 @@
 		<c:forEach var='obj' items="${basketList }" varStatus="status">
 			<input type='hidden' name = "goods_category" value='${obj.goods_category}' />
 			<input type='hidden' name = "goods_idx" value='${obj.goods_idx}' />
-<!-- 			<input type='hidden' name="basket_check_idx" id="basket_check_idx" value=""/> -->
+ 			<input type='hidden' name="basket_idx" id="basket_idx" value="${obj.basket_idx}"/>
+ 			<input type='hidden' name="goods_thumbnail"  value="${obj.goods_thumbnail}"/>
 			<c:set var='goods' value="${obj}"/>
 			<script>
 				xgoods.push('${goods.goods_idx}');
@@ -92,9 +93,9 @@
 				<td><input type='text' id="goods_name" name="goods_name" value = "${obj.goods_name }"></td>
 				<td><input type='text' id="price_${obj.goods_idx}" name = "goods_sell_price" value='${obj.goods_sell_price}' readonly/></td>
 				<td><input type='text' id="cnt_${obj.goods_idx}" name='order_cnt' value='${obj.order_cnt }' readonly ></td>
-				<td><a href = '${root }basket/basket_modify?goods_idx=${obj.goods_idx}'> <input type = 'button' value = '수정'></a></td>
+				<td><a href = '${root }basket/basket_modify?goods_idx=${obj.goods_idx}&basket_idx=${obj.basket_idx}'> <input type = 'button' value = '수정'></a></td>
 				<td><input type='text' id="amt_${obj.goods_idx}" name = "order_amt" value="${obj.order_amt}" readonly/></td>
-				<td><a href = '${root }basket/basket_delete'> <input type = 'button' value = '삭제'></a></td>
+				<td><a href = '${root }basket/basket_delete?basket_idx=${obj.basket_idx}'> <input type = 'button' value = '삭제'></a></td>
 			</tr>	
 		</c:forEach>
 	</table>
