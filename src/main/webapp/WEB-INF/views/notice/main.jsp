@@ -24,7 +24,10 @@
 
 <title>Insert title here</title>
 </head>
-<body align = center>
+<body>
+<c:import url="/WEB-INF/views/include/topmenu.jsp"/>
+
+	<div align = center>
 	<h1>공지사항</h1>
 	<table align = center>
 		<tr>
@@ -40,6 +43,13 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<a href = "${root }notice/write">글쓰기</a>
+	
+		<c:if test="${loginAdminBean.adminLogin == true}">
+		<a href = "${root }notice/write">글쓰기</a>
+		</c:if>
+		</div>
+
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
+
 </html>

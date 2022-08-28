@@ -8,18 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
 <h1>order main</h1>
-<form:form action="${root }order/pay_pro" method='post'	modelAttribute="payInfoBean">
-<%-- 	<input type='hidden' name = "order_idx" value='${orderInfoBean.order_idx}'/> --%>
-<%-- 	<input type='hidden' name = "goods_idx" value='${orderInfoBean.goods_idx }'/> --%>
-<%-- 	<input type='hidden' name = "goods_name" value='${orderInfoBean.goods_name }'/> --%>
-<%-- 	<input type='hidden' name = "goods_thumbnail" value='${orderInfoBean.goods_thumbnail }'/> --%>
-<%-- 	<input type='hidden' name = "goods_sell_price" value='${orderInfoBean.goods_sell_price }'/> --%>
-<%-- 	<input type='hidden' name = "order_cnt" value='${orderInfoBean.order_cnt }'/> --%>
-<%-- 	<input type='hidden' name = "order_amt" value='${orderInfoBean.order_amt }'/> --%>
+<form:form action="${root }order/pay_pro" method='post' modelAttribute="payInfoBean">
 	
 	<table align = center  border = 'solid' '1px'>
 			<tr>
@@ -31,7 +25,7 @@
 				<th>총 구매금액</th>
 			</tr>
 			<c:forEach var='obj' items="${orderList }">
-<%-- 			<input type='hidden' name = "goods_thumbnail" value='${obj.goods_thumbnail}'/> --%>
+			<input type='hidden' name = "payOK" value='${obj.payOK}'/> 
 			<tr>
 				<td><input type='text' id="order_idx" name ="order_idx" value = "${obj.order_idx }" readonly></td>
 				<td><img src="${root }upload/${obj.goods_thumbnail}" width=100px, height=100px/><br/></td>
@@ -53,9 +47,10 @@
 		<label>우편번호 <input type='text'  name = "user_zipcode" value='${loginUserBean.user_zipcode}' /></label><br/>
 		<label>주소 <input type='text'  name = "user_addr1" value='${loginUserBean.user_addr1}' /></label><br/>
 		<label>상세주소 <input type='text'  name = "user_addr2" value='${loginUserBean.user_addr2}' /></label><br/>
-		<input type="radio" name="order_pay_option"  id="order_pay_option" value="신용카드" >신용카드<br/>
+		<input type="radio" name="order_pay_option"  id="order_pay_option" value="신용카드"  checked>신용카드<br/>
         <input type="radio" name="order_pay_option"  id="order_pay_option" value="계좌이체" >계좌이체<br/>
-		<button type = "submit"> 구매하기 </button>
+        <form:errors path='order_pay_option' style='color:red' />
+		<button type="submit">결제하기</button>
 		</div>
 	</form:form>
 	

@@ -2,6 +2,7 @@ package beans;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserBean {
@@ -9,17 +10,21 @@ public class UserBean {
 	private String user_idx;
 	
 	@Size(min =4, max=14)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_id;
 	
 	@Size(min =4, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw;
 	
 	@Size(min =4, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw2;
 	
 	private boolean userIdExist;
 	
 	@Size(min =1, max=5)
+	@Pattern(regexp = "[가-힣]*")
 	private String user_name;
 	
 	@Size(min = 8, max = 8)

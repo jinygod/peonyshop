@@ -64,7 +64,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
-<form:form action="${root }order/order_pro" method='post' id='basketOrder' modelAttribute="basketOrderBean">
+<form:form action="${root }order/main" method='post' id='basketOrder' modelAttribute="basketOrderBean">
 
 <h1>장바구니</h1>
 		<table align = center  border = 'solid' '1px' >

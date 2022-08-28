@@ -34,14 +34,14 @@
 	
 		<div align = center>
 		<h1>유저 정보</h1>
-		<label>이름 <input type='text'  name = "user_name" value='${loginUserBean.user_name}' readonly/></label><br/>
-		<label>생년월일 <input type='text'  name = "user_birth" value='${loginUserBean.user_birth}' readonly/></label><br/>
-		<label>이메일 <input type='text'  name = "user_email" value='${loginUserBean.user_email}' readonly/></label><br/>
-		<label>휴대폰 번호 <input type='text'  name = "user_phone" value='${loginUserBean.user_phone}' readonly/></label><br/>
-		<label>우편번호 <input type='text'  name = "user_zipcode" value='${loginUserBean.user_zipcode}' readonly/></label><br/>
-		<label>주소 <input type='text'  name = "user_addr1" value='${loginUserBean.user_addr1}' readonly/></label><br/>
-		<label>상세주소 <input type='text'  name = "user_addr2" value='${loginUserBean.user_addr2}' readonly/> </label><br/>
-		<label>결제방법<input type='text'  name = "order_pay_option" value='${order_pay_option}' readonly/></label><br/>
+		<label>이름 <input type='text'  name = "user_name" value='${payInfoBean.user_name}' readonly/></label><br/>
+		<label>생년월일 <input type='text'  name = "user_birth" value='${payInfoBean.user_birth}' readonly/></label><br/>
+		<label>이메일 <input type='text'  name = "user_email" value='${payInfoBean.user_email}' readonly/></label><br/>
+		<label>휴대폰 번호 <input type='text'  name = "user_phone" value='${payInfoBean.user_phone}' readonly/></label><br/>
+		<label>우편번호 <input type='text'  name = "user_zipcode" value='${payInfoBean.user_zipcode}' readonly/></label><br/>
+		<label>주소 <input type='text'  name = "user_addr1" value='${payInfoBean.user_addr1}' readonly/></label><br/>
+		<label>상세주소 <input type='text'  name = "user_addr2" value='${payInfoBean.user_addr2}' readonly/> </label><br/>
+		<label>결제방법<input type='text'  name = "order_pay_option" value='${payInfoBean.order_pay_option}' readonly/></label><br/>
 		<a href = ${root }> 홈으로 </a>
 		</div>
 </body>

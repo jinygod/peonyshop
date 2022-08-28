@@ -34,6 +34,7 @@ public class NoticeController {
 		
 		List<NoticeBean> noticeList = noticeService.getNoticeList(noticeBean);
 
+		model.addAttribute("loginAdminBean", loginAdminBean);
 		model.addAttribute("noticeList", noticeList);
 		
 		return "notice/main";
@@ -101,4 +102,5 @@ public class NoticeController {
 		model.addAttribute("notice_idx", notice_idx);
 		return "notice/modify_success";
 	}
+	
 }

@@ -34,8 +34,8 @@ public class OrderService {
 		return orderDao.getUserInfo(orderInfoBean);
 		
 	}
-	public List<OrderBean> addPayInfo(OrderBean payInfoBean) {
-		return orderDao.addPayInfo(payInfoBean);
+	public List<OrderBean> getPayInfo(OrderBean payInfoBean) {
+		return orderDao.getPayInfo(payInfoBean);
 	}
 	
 	public void modifyOrderUserInfo(OrderBean basketOrderBean) {
@@ -48,5 +48,21 @@ public class OrderService {
 	
 	public void deleteBasketInfo(String user_idx) {
 		orderDao.deleteBasketInfo(user_idx);
+	}
+	
+	public void modifyPayOptionInfo(OrderBean payInfoBean) {
+		orderDao.modifyPayOptionInfo(payInfoBean);
+	}
+	
+	public void modifypayOKInfo(OrderBean payInfoBean) {
+		orderDao.modifypayOKInfo(payInfoBean);
+	}
+	
+	public List<OrderBean> getOrderManageInfo(OrderBean orderManageBean) {
+		return orderDao.getOrderManageInfo(orderManageBean);
+	}
+	
+	public void modifyPayInfo(OrderBean payInfoBean) {
+		orderDao.modifyPayInfo(payInfoBean);
 	}
 }
