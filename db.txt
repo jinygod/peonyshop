@@ -122,9 +122,19 @@ start with 1
 increment by 1
 minvalue 1;
 
+--220827
 alter table basket_table add (goods_thumbnail varchar2(1000));
 alter table order_table add (goods_thumbnail varchar2(1000));
 alter table order_table add (goods_category varchar2(100));
 
-
+--220828
+alter table order_table add (basket_idx number);
+alter table order_table add (buyNow number);
+alter table order_table rename column buyNow to payOK;
+alter table user_table modify user_birth varchar2(20);
+to_date
+create sequence buyNow_seq
+start with 1
+increment by 1
+minvalue 1;
 commit;
