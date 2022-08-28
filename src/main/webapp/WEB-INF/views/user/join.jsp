@@ -15,8 +15,12 @@ function checkUserIdExist(){
 	
 	var user_id = $("#user_id").val()
 	
-	if(user_id.length == 0){
+	if(user_id.length < 4){
+		if(user_id.length == 0) {
 		alert('아이디를 입력해주세요')
+		} else {
+		alert('아이디는 4글자 이상 입력해주세요')
+		}
 		return
 	}
 	
@@ -40,10 +44,10 @@ function resetUserIdExist(){
 	$("#userIdExist").val('false')
 }
 </script>
-<body align = center>
+<body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
-	<form:form action="${root }user/join_pro" method='post'
-		modelAttribute="joinUserBean">
+	<div align = center>
+	<form:form action="${root }user/join_pro" method='post' modelAttribute="joinUserBean" >
 		<form:hidden path="userIdExist" />
 		<div>
 			<form:label path="user_id">아이디</form:label>
@@ -69,17 +73,17 @@ function resetUserIdExist(){
 		<br />
 
 		<form:label path="user_birth">생년월일</form:label>
-		<form:input path="user_birth" />
+		<form:input path="user_birth" placeholder="ex) 20000212"/>
 		<form:errors path='user_birth' style='color:red' />
 		<br />
 
 		<form:label path="user_email">이메일</form:label>
-		<form:input path="user_email" />
+		<form:input path="user_email" placeholder="ex) peony@peony.com"/>
 		<form:errors path='user_email' style='color:red' />
 		<br />
 
 		<form:label path="user_phone">휴대폰 번호</form:label>
-		<form:input path="user_phone" />
+		<form:input path="user_phone" placeholder="ex) 01012345678"/>
 		<form:errors path='user_phone' style='color:red' />
 		<br />
 
@@ -100,5 +104,10 @@ function resetUserIdExist(){
 
 		<form:button>확인</form:button>
 	</form:form>
+	</div>
+	
+<footer>
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
+</footer>
 </body>
 </html>

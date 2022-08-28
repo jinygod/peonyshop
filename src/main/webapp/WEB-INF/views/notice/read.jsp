@@ -8,8 +8,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body align = center>
+<body>
 <c:import url="/WEB-INF/views/include/topmenu.jsp"/>
+
+	<div align = center>
 	<h1>공지사항</h1>
 		<label for="notice_writer">작성자</label>
 		<input type="text"
@@ -29,8 +31,13 @@
 			rows="10" style="resize: none" disabled="disabled">${readNotice.notice_content }</textarea>
 			
 		<a href= '${root }notice/main'>목록</a>	
+		
+		<c:if test="${loginAdminBean.adminLogin == true}">
 		<a href= '${root }notice/modify?notice_idx=${notice_idx}'>수정</a>
-		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>	
-
+		<a href= '${root }notice/delete?notice_idx=${notice_idx}'>삭제</a>
+		</c:if>
+		</div>
+		
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

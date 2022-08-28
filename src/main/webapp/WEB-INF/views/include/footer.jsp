@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,6 +41,8 @@ footer{
 			<ul class="foot_list clear">
 				<li><a href="이용약관.html"> 이용약관</a></li>
 				<li><a href="개인정보취급방침.html"> 개인정보취급방침</a></li>
+				
+				<li><a  href='${root }admin/login'>관리자페이지</a></li>
 			</ul>
 		</div>
 	</footer>

@@ -39,7 +39,7 @@
 </head>
 <body>
 	
-	<form:form action='${root }order/order_pro' method='post' modelAttribute="orderInfoBean" >
+	<form:form action='${root }order/main' method='post' modelAttribute="orderInfoBean" >
 	<input type='hidden' name = "user_idx" value='${loginUserBean.user_idx }'/>
 	<input type='hidden' name = "user_name" value='${loginUserBean.user_name }'/>
 	<input type='hidden' name = "user_phone" value='${loginUserBean.user_phone }' />

@@ -34,19 +34,15 @@ public class UserController {
 	}
 
 	@PostMapping("/login_pro")
-	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
-		
-//		if(result.hasErrors()) {
-//			return "user/login";
-//		}
-		
-		userService.getLoginUserInfo(tempLoginUserBean);
-		
-		if(loginUserBean.isUserLogin() == true) {
-			return "user/login_success";
-		} else {
-			return "user/login_fail";
-		}
+	public String login_pro(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean) {
+			
+			userService.getLoginUserInfo(tempLoginUserBean);
+			
+			if(loginUserBean.isUserLogin() == true) {
+				return "user/login_success";
+			} else {
+				return "user/login_fail";
+			}
 	}
 	
 	@GetMapping("/join")

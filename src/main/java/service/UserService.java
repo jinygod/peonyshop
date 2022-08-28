@@ -37,9 +37,6 @@ public class UserService {
 		
 		UserBean tempLoginUserBean2 = userDao.getLoginUserInfo(tempLoginUserBean);
 		
-//		System.out.println(tempLoginUserBean2.getUser_idx());
-//		System.out.println(tempLoginUserBean2.getUser_name()); //-> tempLoginUserBean2를 Controller에서 출력하는 방법 (안넘어감)
-		
 		if(tempLoginUserBean2 != null) {
 			loginUserBean.setUser_idx(tempLoginUserBean2.getUser_idx());
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
