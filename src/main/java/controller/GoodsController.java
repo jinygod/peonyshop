@@ -30,7 +30,6 @@ public class GoodsController {
 	@GetMapping("/main")
 	public String main(@RequestParam("topmenu_name") String topmenu_name,
 					   Model model
-					//   UserBean loginUserBean
 					   ) {
 		
 		List<GoodsBean> goodsList = goodsService.getGoodsList(topmenu_name);
@@ -60,7 +59,6 @@ public class GoodsController {
 	@GetMapping("/goods_reg")
 	public String goods_reg(@ModelAttribute("goodsRegBean") GoodsBean goodsRegBean) {
 		
-		// 서비스에서 가져온걸 여기왜넣어
 		
 		return "goods/goods_reg";
 		
