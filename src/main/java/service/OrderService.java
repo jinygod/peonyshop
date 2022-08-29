@@ -54,15 +54,18 @@ public class OrderService {
 		orderDao.modifyPayOptionInfo(payInfoBean);
 	}
 	
+	
 	public void modifypayOKInfo(OrderBean payInfoBean) {
-		orderDao.modifypayOKInfo(payInfoBean);
-	}
+		orderDao.modifypayOKInfo(payInfoBean); 
+	 }
+	 
 	
 	public List<OrderBean> getOrderManageInfo(OrderBean orderManageBean) {
 		return orderDao.getOrderManageInfo(orderManageBean);
 	}
 	
-	public void modifyPayInfo(OrderBean payInfoBean) {
-		orderDao.modifyPayInfo(payInfoBean);
-	}
+	
+	  public void modifyPayInfo(OrderBean payInfoBean) {
+	  orderDao.modifyPayInfo(payInfoBean); }
+	 
 }

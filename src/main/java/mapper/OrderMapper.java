@@ -73,15 +73,14 @@ public interface OrderMapper {
 	 
 	 // order_table에 결제정보 추가
 	 @Update("update order_table " +
-			 "set order_pay_option = #{order_pay_option}"
-			 + "where order_idx BETWEEN (select min(order_idx) from order_table) AND (select max(order_idx) from order_table)")
-	 void modifyPayOptionInfo(OrderBean payInfoBean);
-	 
-	 // order_table 결제 완료 구분
-	 @Update("update order_table " +
-			 "set payOK = 0 "
-			 + "where payOK = 1")
-	 void modifypayOKInfo(OrderBean payInfoBean);
+				"set order_pay_option = #{order_pay_option}"
+				+ "where order_idx BETWEEN (select min(order_idx) from order_table) AND (select max(order_idx) from order_table)")
+		void modifyPayOptionInfo(OrderBean payInfoBean);
+
+		// order_table 결제 완료 구분
+
+	@Update("update order_table " + "set payOK = 0 " + "where payOK = 1")
+	void modifypayOKInfo(OrderBean payInfoBean);
 	 
 	 // 관리자페이지에서 결제완료된 주문내역 조회
 	 @Select("select * " +
@@ -90,9 +89,14 @@ public interface OrderMapper {
 	 List<OrderBean> getOrderManageInfo(OrderBean orderManageBean);
 	 
 	 // 결제 전 유저정보 수정
-	 @Update("update order_table " +
-			 "set user_email = #{user_email}, user_phone = #{user_phone}, user_zipcode = #{user_zipcode}, user_addr1 = #{user_addr1}, user_addr2 = #{user_addr2}")
-	 void modifyPayInfo(OrderBean payInfoBean);
+		
+		  @Update("update order_table " +
+		  "set user_email = #{user_email}, user_phone = #{user_phone}, user_zipcode = #{user_zipcode}, user_addr1 = #{user_addr1}, user_addr2 = #{user_addr2} "
+		  + "where order_idx = (select max(order_idx) from order_table and (payOK is not null from order_table)) or "
+		  + "(basket_idx = (select (between min(basket_idx) and max(bakset_idx) from basket_table)) and (basket_idx is not null from basket_table))") 
+		  void modifyPayInfo(OrderBean
+		  payInfoBean);
+		 
 	 
 }
 	

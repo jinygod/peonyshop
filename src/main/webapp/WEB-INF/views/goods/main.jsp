@@ -50,17 +50,6 @@ a{
 </c:forEach>
 	</div>
 	
-<!-- <div class = 'content'> -->
-<%-- 	<c:forEach var='obj' items='${goodsList }'> --%>
-<%-- 		<a href='${root}goods/goods_detail?topmenu_name=${topmenu_name}&goods_idx=${obj.goods_idx}'> --%>
-<%-- 		<img src="${root }upload/${obj.goods_thumbnail}" width=300px, height=400px/><br/> --%>
-<%-- 		${obj.goods_name } <br/>${obj.goods_sell_price } <br/> </a> --%>
-		
-<%-- 		<c:if test = "${fn:length(goodsList) % 3 == 0 }"> --%>
-			
-<%-- 		</c:if> --%>
-<%-- 	</c:forEach> --%>
-	
 
 <footer>
 <c:import url="/WEB-INF/views/include/footer.jsp"/>

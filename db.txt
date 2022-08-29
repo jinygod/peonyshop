@@ -137,4 +137,9 @@ create sequence buyNow_seq
 start with 1
 increment by 1
 minvalue 1;
+--220829
+alter table goods_table add goods_cnt varchar2(20);
+alter table goods_table add goods_amt varchar2(20);
+
+
 commit;
